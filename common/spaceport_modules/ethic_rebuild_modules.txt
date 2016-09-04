@@ -50,6 +50,16 @@ hyperium_refinery = {
 			factor = 0
 			from = { NOT = { has_spaceport_module = solar_panel_network } }
 		}
+		modifier = {
+			owner = {
+				any_owned_planet = {
+					not = {
+						has_building = "building_industrial_cap" 			
+					}
+				}
+			}
+		}
+
 	}
 }
 

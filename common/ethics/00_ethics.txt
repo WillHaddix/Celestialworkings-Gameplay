@@ -268,11 +268,9 @@ ethic_fanatic_pacifist = {
 	opposite_dislike = -0.20
 	
 	country_modifier = {
-
-		        country_trust_growth = 0.75
-				max_embassies = 3
-			    max_rivalries = -3			
-                
+		country_trust_growth = 0.75
+		max_embassies = 3
+		max_rivalries = -3			
 	}
 	
 	pop_modifier = {
@@ -300,7 +298,6 @@ ethic_pacifist = {
 		country_trust_growth = 0.25
 		max_embassies = 1
 		max_rivalries = -1				
-                
 	}
 	
 	pop_modifier = {
