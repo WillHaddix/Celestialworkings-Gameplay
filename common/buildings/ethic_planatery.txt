@@ -1,0 +1,708 @@
+### Pacifist
+
+building_paradise_dome = {
+	base_buildtime = 360
+	planet_unique = yes
+	
+	cost = {
+		minerals = 300
+		influence = 10
+	}
+	
+	required_resources = {
+		energy = 4
+	}
+	
+	planet_modifier = {
+		pop_environment_tolerance = 0.05
+		pop_happiness = 0.1
+ 
+	}
+
+	
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_1"
+			planet = {
+				OR = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+	
+	prerequisites = {
+		"tech_paradise_dome"
+	}
+	
+	ai_special_building = yes
+}
+
+### Xenophobe
+
+building_monument_purity = {
+	base_buildtime = 360
+	planet_unique = yes
+	
+	cost = {
+		minerals = 150
+		influence = 10
+	}
+	
+	planet_modifier = {
+		pop_happiness = 0.10
+	}
+	
+	prerequisites = {
+		"tech_purity_campaigns"
+	}
+	
+	ai_special_building = yes
+	
+	ai_allow = {
+		has_any_resource = no
+	}
+	
+	ai_weight = {
+		factor = 1000	
+	}
+}
+
+### Militarist
+
+building_virtual_combat_arena = {
+	base_buildtime = 360
+	planet_unique = yes
+	
+	cost = {
+		minerals = 350
+		influence = 10
+	}
+	
+	required_resources = {
+		energy = 3
+	}
+	
+	planet_modifier = {
+		pop_happiness = 0.05
+		pop_ethic_shift = -0.05
+	}
+	
+	ai_special_building = yes
+	
+	ai_allow = {
+		has_any_resource = no
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_1"
+			planet = {
+				OR = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+	
+	prerequisites = {
+		"tech_virtual_combat_arena"
+	}
+	
+	ai_weight = {
+		factor = 1000	
+	}	
+}
+
+### Xenophile
+
+building_visitor_center = {
+	base_buildtime = 360
+	planet_unique = yes
+	
+	cost = {
+		minerals = 200
+	}
+	
+	required_resources = {
+		energy = 2
+	}
+	
+	planet_modifier = {
+		pop_environment_tolerance = 0.05
+		pop_xenophobia = -0.10
+		planet_migration_xeno_pull = 0.50
+	}
+	
+	prerequisites = {
+		"tech_visitor_center"
+	}
+	
+	ai_special_building = yes
+	
+	ai_allow = {
+		has_any_resource = no
+	}	
+	
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+###spiritual
+
+building_symbol_unity = {
+	base_buildtime = 360
+	planet_unique = yes
+	
+	cost = {
+		minerals = 200
+	}
+	
+	planet_modifier = {
+		pop_ethic_shift = -0.05
+		pop_happiness = 0.05
+
+	}
+	
+	prerequisites = {
+		"tech_symbol_unity"
+	}
+	
+	ai_special_building = yes
+	
+	ai_allow = {
+		has_any_resource = no
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+### Materialist
+building_institute = {
+	base_buildtime = 720
+	planet_unique = yes
+	
+	cost = {
+		minerals = 600
+		influence = 50
+	}
+	
+	produced_resources = {
+		engineering_research = 5
+		physics_research = 5
+		society_research = 5
+	}
+	
+	required_resources = {
+		energy = 5
+	}
+	
+	planet_modifier = {
+		tile_resource_physics_research_mult = 0.05
+		tile_resource_society_research_mult = 0.05
+		tile_resource_engineering_research_mult = 0.05
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_2"
+			planet = {
+				OR = {
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+	
+	prerequisites = {
+		"tech_global_research_initiative"
+	}
+	
+	ai_special_building = yes
+	
+	ai_allow = {
+		has_any_resource = no
+	}
+	
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+
+###individualist
+building_hyper_entertainment_forum = {
+	base_buildtime = 360
+	planet_unique = yes
+	
+	cost = {
+		minerals = 350
+		influence = 25
+	}
+	
+	required_resources = {
+		energy = 6
+	}
+	
+	planet_modifier = {
+		pop_happiness = 0.15
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_2"
+			planet = {
+				OR = {
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+	
+	prerequisites = {
+		"tech_hyper_entertainment_forum"
+	}
+	
+	ai_special_building = yes
+	
+	ai_allow = {
+		has_any_resource = no
+	}
+	
+	ai_weight = {
+		factor = 1000
+	}
+}
+
+### Collectivist
+
+building_ministry_benevolence = {
+	base_buildtime = 720
+	planet_unique = yes
+	
+	cost = {
+		minerals = 300
+		influence = 25
+	}
+	
+	required_resources = {
+		energy = 4
+	}
+	
+	planet_modifier = {
+		pop_ethic_shift = -0.15
+	}	
+	
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_2"
+			planet = {
+				or = {
+					has_building = "building_capital_3"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+	
+	prerequisites = {
+		"tech_galactic_benevolence"
+	}
+	
+	ai_special_building = yes
+	
+	ai_allow = {
+		has_any_resource = no
+	}
+	
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+### Capitalist
+building_galactic_stock_exchange = {
+	base_buildtime = 360
+	planet_unique = yes
+	
+	cost = {
+		minerals = 450
+		influence = 25
+	}
+
+	produced_resources = {
+		energy = 6
+	}
+	
+	planet_modifier  = {
+		tile_resource_energy_mult = 0.25
+	}
+
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_2"
+			planet = {
+				or = {
+					has_building = "building_capital_3"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+	
+	prerequisites = {
+		"tech_galactic_markets"
+	}
+	
+	ai_special_building = yes
+	
+	ai_allow = {
+		has_any_resource = no
+	}
+	
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+###Socalist
+building_ministry_of_equality = {
+	base_buildtime = 360
+	planet_unique = yes
+	
+	cost = {
+		minerals = 250
+		influence = 25
+	}
+
+	required_resources = {
+		energy = 2
+	}
+	
+	country_modifier = {
+		pop_happiness = 0.10
+                pop_growth_req_mult = -0.10
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_2"
+			planet = {
+				OR = {
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+	
+	prerequisites = {
+		"tech_ministry_of_equality"
+	}
+	
+	ai_weight = {
+		weight = 110
+	}
+	
+	ai_special_building = yes
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+###Green
+building_biofuel_plant = {
+	base_buildtime = 360
+	planet_unique = yes
+
+	cost = {
+		minerals = 350
+	}
+
+	produced_resources = {
+		energy = 7
+		food = 7
+	}
+
+	planet_modifier = {
+                pop_environment_tolerance = 0.05
+	}
+	
+	potential = {	
+		tile = {
+			 OR = {
+				has_deposit = "d_farmland_deposit"
+				has_deposit = "d_mineral_food_deposit"
+				has_deposit = "d_rich_mineral_food_deposit"
+				has_deposit = "d_rich_food_mineral_deposit"
+				has_deposit = "d_rich_farmland_deposit"
+				has_deposit = "d_vast_farmland_deposit"
+			}
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requirement_farmland"
+		}			
+            
+		custom_tooltip = {
+			text = "requires_building_capital_1"
+			planet = {
+				OR = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}			
+	
+
+	}
+	
+	prerequisites = {
+		"tech_bioreactor"
+	}
+	
+	ai_special_building = yes
+
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+###industrial
+
+building_thermal_borehole = {
+	base_buildtime = 180
+	planet_unique = yes
+
+	cost = {
+		minerals = 400
+		energy = 50
+	}
+	
+	produced_resources = {
+		energy = 7
+		minerals = 7
+	}
+
+	planet_modifier = {
+                pop_environment_tolerance = -0.05
+                tile_resource_food_mult = -0.1
+	}
+	
+
+	prerequisites = {
+		"tech_thermal_borehole"
+	}	
+
+	potential = {
+		tile = {
+		         OR = {
+				has_deposit = "d_energy_deposit" 
+				has_deposit = "d_mineral_energy_deposit"
+				has_deposit = "d_rich_energy_deposit"
+				has_deposit = "d_vast_energy_deposit"
+				has_deposit = "d_immense_energy_deposit"
+			}
+		}
+	}	
+	
+	allow = {
+		custom_tooltip = {
+			text = "requirement_energy"
+		}	
+		
+		custom_tooltip = {
+			text = "requires_building_capital_1"
+			planet = {
+				OR = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+	ai_special_building = yes
+
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+### exploration
+building_deep_space_scanner = {
+	base_buildtime = 560
+	planet_unique = yes
+		
+	cost = {
+		minerals = 450
+		energy = 100
+	}
+	
+	required_resources = {
+		energy = 7
+	}
+	
+	prerequisites = {
+		"tech_deep_space_scanner"
+	}
+	
+	produced_resources = {
+		physics_research = 5
+	}
+	
+	adjacency_bonus = {
+		resource_physics_research_add = 1
+	}
+	
+	planet_modifier = {
+		planet_sensor_range_mult = 1
+		planet_border_mult = 0.25
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_1"
+			planet = {
+				OR = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+		
+	ai_special_building = yes
+
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+
+##agriculture
+
+building_food_bazaar = {
+	base_buildtime = 200
+	planet_unique = yes
+		
+	cost = {
+		minerals = 250
+		energy = 50
+	}
+	
+	required_resources = {
+		energy = 3
+	}
+	
+	prerequisites = {
+		"tech_spirit_agri"
+	}
+	
+	
+	adjacency_bonus = {
+		resource_food_add = 1
+	}
+	
+	planet_modifier = {
+          tile_resource_food_mult = 0.1
+		  pop_happiness = 0.05
+	}
+		
+	ai_special_building = yes
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+#### Mining
+
+building_metallurgical_plant = {
+	base_buildtime = 250
+	planet_unique = yes
+	cost = {
+		minerals = 200
+		energy = 50
+	}
+	
+	required_resources = {
+		energy = 3
+	}
+	
+	
+	prerequisites = {
+		"tech_metallurgical_plant"
+	}
+	
+	
+	adjacency_bonus = {
+		resource_minerals_add = 3
+		resource_food_add = -1
+	}
+	
+	planet_modifier = {
+       
+	   planet_building_cost_mult = -0.05
+	   building_time_mult = -0.05
+	   pop_environment_tolerance = -0.02
+	}	
+	
+		
+	ai_special_building = yes
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			always = yes
+		}	
+	}
+}

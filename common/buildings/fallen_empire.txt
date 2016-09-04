@@ -1,0 +1,53 @@
+
+# Fallen Empire buildings
+building_ancient_factory = {
+	is_listed = no
+
+	allow = {
+		always = no
+	}
+	
+	produced_resources = {
+		minerals = @feproduction
+	}
+	
+	required_resources = {
+		energy = @feupkeep
+	}	
+	
+	prerequisites = {
+	}
+	
+	ai_replace = no
+}
+
+building_dark_matter_power_plant = {
+	is_listed = no
+	
+	allow = {
+		always = no
+	}
+	
+	produced_resources = {
+		energy = 15
+	}
+	
+	prerequisites = {
+	}
+	
+	ai_replace = no
+}
+
+building_agri_processing_complex = {
+	is_listed = no
+	
+	produced_resources = {
+		food = @feproduction
+	}
+	
+	required_resources = {
+		energy = @feupkeep
+	}
+	
+	ai_replace = no
+}

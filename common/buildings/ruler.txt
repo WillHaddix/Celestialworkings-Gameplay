@@ -1,0 +1,252 @@
+
+# Grand Mausoleum
+building_grand_mausoleum = {
+	base_buildtime = 1000
+	built_for_ruler = yes
+	planet_unique = yes
+	
+	cost = { 
+		minerals = 250 
+		influence = 100
+	}  
+	
+	planet_modifier = {
+		pop_ethic_shift = -0.1
+	}
+	
+	potential = {
+		planet = {
+			exists = owner
+			owner = {
+				OR = {
+					has_government = divine_mandate
+					has_government = transcendent_empire
+				}
+			}
+		}
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = building_grand_mausoleum_allowed_tooltip
+			exists = ruler
+			ruler = {
+				NOT = { has_leader_flag = built_monument }
+			}
+			planet = {
+				OR = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+	
+	on_queued = {
+		ruler = {
+			set_leader_flag = built_monument
+		}
+	}
+	
+	on_unqueued = {
+		ruler = {
+			remove_leader_flag = built_monument
+		}
+	}
+	
+	ai_special_building = yes
+
+	ai_allow = {
+		has_any_resource = no
+	}
+	
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+
+
+# Royal Gardens - influence added
+building_royal_gardens = {
+	base_buildtime = 720
+	built_for_ruler = yes
+	planet_unique = yes
+	
+	cost = { 
+		minerals = 200 
+		influence = 50 
+	}
+	produced_resources = {
+		influence = 0.25
+	}
+
+	
+	planet_modifier = {
+		pop_happiness = 0.10
+	}
+	
+	potential = {
+		planet = {
+			owner = {
+				OR = {
+					has_government = enlightened_monarchy
+					has_government = irenic_monarchy
+				}
+			}
+		}
+	}
+	
+	allow = {
+		exists = ruler
+		ruler = {
+			NOT = { has_leader_flag = built_monument }
+		}
+	}
+	
+	on_queued = {
+		ruler = {
+			set_leader_flag = built_monument
+		}
+	}
+	
+	on_unqueued = {
+		ruler = {
+			remove_leader_flag = built_monument
+		}
+	}
+	
+	ai_special_building = yes
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+building_global_pds = {
+	base_buildtime = 720
+	built_for_ruler = yes
+	planet_unique = yes
+	
+	cost = { 
+		minerals = 500
+		energy = 150
+		influence = 25
+	}
+	
+	required_resources = {
+		energy = 5
+	}
+	
+	planet_modifier = {
+		planet_sensor_range_mult = 0.5
+		planet_fortification_strength = 0.5
+	}
+	
+	
+	potential = {
+		planet = {
+			owner = {
+				OR = {
+					has_government = xeno_fascism
+					has_government = unified_empire
+				}
+			}
+		}
+	}
+	
+	allow = {
+		exists = ruler
+		ruler = {
+			NOT = { has_leader_flag = built_monument }
+		}
+	}
+	
+	on_queued = {
+		ruler = {
+			set_leader_flag = built_monument
+		}
+	}
+	
+	on_unqueued = {
+		ruler = {
+			remove_leader_flag = built_monument
+		}
+	}
+	
+	ai_special_building = yes
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+# Royal Library
+building_royal_library = {
+	base_buildtime = 500
+	built_for_ruler = yes
+	planet_unique = yes
+	
+	cost = { 
+		minerals = 350 
+		influence = 50 
+	}
+	
+	planet_modifier = {
+		        pop_ethic_shift = -0.05
+	}
+	
+	produced_resources = {
+        influence = 0.15
+	}
+	
+	potential = {
+		planet = {
+			owner = {
+				OR = {
+					has_government = par_monarchy
+					has_government = glor_monarchy
+				}
+			}
+		}
+	}
+	
+	allow = {
+		exists = ruler
+		ruler = {
+			NOT = { has_leader_flag = built_monument }
+		}
+	}
+	
+	on_queued = {
+		ruler = {
+			set_leader_flag = built_monument
+		}
+	}
+	
+	on_unqueued = {
+		ruler = {
+			remove_leader_flag = built_monument
+		}
+	}
+	
+	ai_special_building = yes
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}

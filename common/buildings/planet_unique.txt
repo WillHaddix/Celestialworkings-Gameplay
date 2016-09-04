@@ -1,0 +1,211 @@
+building_clinic = {
+	base_buildtime = 360
+	planet_unique = yes
+	
+	cost = {
+		minerals = 150
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requirement_not_homeworld"
+			planet = {
+				NOT = { has_modifier = "capital" }
+			}
+		}		
+	}
+	
+	required_resources = {
+		energy = 1
+	}
+	
+	produced_resources = {
+		food = 2
+	}
+	
+	planet_modifier = {
+		pop_environment_tolerance = 0.05
+	}
+	
+	prerequisites = {
+		"tech_frontier_health"
+	}
+	
+	ai_weight = {
+		factor = 10
+	}
+}
+
+building_xeno_zoo = {
+	base_buildtime = 360
+	planet_unique = yes
+	
+	cost = {
+		minerals = 300
+		influence = 10
+	}
+	
+	required_resources = {
+		sr_alien_pets = 1
+		energy = 2
+	}
+	
+	planet_modifier = {
+		pop_happiness = 0.10
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_1"
+			planet = {
+				OR = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+	
+	prerequisites = {
+		"tech_xeno_zoo"
+	}
+	
+	ai_special_building = yes
+	
+	ai_allow = {
+		has_any_resource = no
+	}
+	
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+
+## Slave Processing Facility is required to build Slave Armies
+## They also improve the output of Enslaved Pops on the planet
+building_slave_processing = {
+	base_buildtime = 720
+	planet_unique = yes
+	
+	cost = {
+		minerals = 350
+	}
+	
+	planet_modifier = {
+		slave_production_output = 0.15
+		slave_food_output = 0.15
+	}	
+	
+	allow = {
+		custom_tooltip = {
+			text = "requirement_slave_facility"
+			planet = {
+				owner = {
+					NOT = { has_policy_flag = slavery_not_allowed }
+				}
+			}
+		}
+	}
+
+	prerequisites = {
+		"tech_neural_implants"
+	}
+	
+	ai_special_building = yes
+	
+	ai_allow = {
+		has_any_resource = no
+	}
+	
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+		modifier = {
+			weight = 0
+			NOT = {
+				has_ai_personality_behaviour = slaver
+			}
+		}
+	}
+}
+
+# Recreational Site
+building_recreational = {
+	base_buildtime = 460
+	planet_unique = yes
+		
+	cost = {
+		minerals = 750
+		energy = 200
+	}
+	
+	required_resources = {
+		energy = 3
+		sr_sacred_plant = 1
+	}
+	
+	
+	prerequisites = {
+		"tech_spirit_planet"
+	}
+	
+	produced_resources = {
+		society_research = 3
+	}
+	
+	planet_modifier = {
+	    pop_ethic_shift = -0.1
+		pop_happiness = 0.05
+
+	}
+	
+	army_modifier = {
+				 army_morale = 0.15
+
+	}	
+	
+	
+	adjacency_bonus = {
+		resource_society_research_add = 1
+	}
+	
+	
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_1"
+			planet = {
+				OR = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+		
+	ai_special_building = yes
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}
+		modifier = {
+			factor = 0
+			owner = {
+				any_owned_planet = {
+					not = {
+						has_building = "building_sacred_grove " 			
+					}
+				}
+			}
+		}
+	}
+}

@@ -540,46 +540,43 @@ tech_spirit_planet = {
 	
 	#unlocks buildings: Sacred Grove, Recreational Site 
 	
-		modifier = {	
-	         pop_happiness = 0.05
-			 }
+	modifier = {	
+		pop_happiness = 0.05
+	}
 	
 	weight_modifier = {
 		modifier = {
 			factor = 0
 			NOT = {
-			
-			     OR = {
-			            AND = {				
-			               OR = {
-					             has_ethic = ethic_green
-					             has_ethic = ethic_fanatic_green
-				                }
-
-				           OR = {
-					             has_ethic = ethic_spiritualist
-					             has_ethic = ethic_fanatic_spiritualist
-				                }
-		                      }
-
-				            OR = {
-					              has_government = eco_democracy
-					              has_government = eco_utopia
-				                 }
-			  }	
-			}
+				or = {
+					AND = {
+						OR = {
+							has_ethic = ethic_green
+							has_ethic = ethic_fanatic_green
+						}
+				        OR = {
+							has_ethic = ethic_spiritualist
+							has_ethic = ethic_fanatic_spiritualist
+						}
+		            }
+					OR = {
+						has_government = eco_democracy
+						has_government = eco_utopia
+					}
+				}
+			}	
 		}
-
-	}	
-	
+	}
 	ai_weight = {
 	    factor = 4
 		modifier = {
 			factor = 2
-			has_ethic = ethic_fanatic_green
-			has_ethic = ethic_fanatic_spiritualist
-			has_government = eco_democracy
-			has_government = eco_utopia
+			or = {
+				has_ethic = ethic_fanatic_green
+				has_ethic = ethic_fanatic_spiritualist
+				has_government = eco_democracy
+				has_government = eco_utopia
+			}
 		}
 		modifier = {
 			factor = 1.25

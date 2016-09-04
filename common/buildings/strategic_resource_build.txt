@@ -1,0 +1,406 @@
+
+building_garanthiumworks = {
+	base_buildtime = 360
+	empire_unique = yes
+	
+	cost = {
+		minerals = 200
+	}
+	
+	required_resources = {
+		sr_garanthium = 1
+		energy = 2
+	}
+	
+	country_modifier = {
+		building_time_mult = -0.10
+		planet_building_cost_mult = -0.10
+	}
+	
+	planet_modifier = {
+		building_time_mult = -0.10
+		planet_building_cost_mult = -0.10
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_1"
+			planet = {
+				OR = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+	
+	ai_special_building = yes
+	
+	ai_allow = {
+		has_any_resource = no
+	}
+	
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+building_lythuric_manipulator = {
+	base_buildtime = 360
+	empire_unique = yes
+	
+	cost = {
+		minerals = 350
+	}
+	
+	required_resources = {
+		sr_lythuric = 1
+		energy = 2
+	}
+	
+	country_modifier = {
+		pop_ethic_shift = -0.10
+	}
+	
+	planet_modifier = {
+		pop_ethic_shift = -0.10
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_1"
+			planet = {
+				OR = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+	
+	ai_special_building = yes
+	
+	ai_allow = {
+		has_any_resource = no
+	}
+	
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+building_teldar_plant = {
+	base_buildtime = 360
+	empire_unique = yes
+	
+	cost = {
+		minerals = 350
+	}
+	
+	required_resources = {
+		sr_teldar = 1
+		energy = 2
+	}
+	
+	country_modifier = {
+		pop_happiness = 0.10
+	}
+	
+	planet_modifier = {
+		pop_happiness = 0.10
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_1"
+			planet = {
+				OR = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+	
+	ai_special_building = yes
+
+	ai_allow = {
+		has_any_resource = no
+	}
+	
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+building_orillium_factory = {
+	base_buildtime = 360
+	empire_unique = yes
+	
+	cost = {
+		minerals = 350
+	}
+	
+	required_resources = {
+		sr_orillium = 1
+		energy = 2
+	}
+	
+	country_modifier = {
+		tile_resource_minerals_mult = 0.10
+	}
+	
+	planet_modifier = {
+		tile_resource_minerals_mult = 0.10
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_1"
+			planet = {
+				OR = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+	
+	ai_special_building = yes
+	
+	ai_allow = {
+		has_any_resource = no
+	}
+	
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+building_pitharan_plant = {
+	base_buildtime = 360
+	empire_unique = yes
+	
+	cost = {
+		minerals = 350
+	}
+	
+	required_resources = {
+		sr_pitharan = 1
+		energy = 2
+	}
+	
+	country_modifier = {
+		tile_resource_food_mult = 0.10
+	}
+	
+	planet_modifier = {
+		tile_resource_food_mult = 0.10
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_1"
+			planet = {
+				OR = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+	
+	ai_special_building = yes
+	
+	ai_allow = {
+		has_any_resource = no
+	}
+	
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+building_engos_plant = {
+	base_buildtime = 360
+	empire_unique = yes
+	
+	cost = {
+		minerals = 350
+	}
+	
+	required_resources = {
+		sr_engos = 1
+		energy = 2
+	}
+	
+	country_modifier = {
+		pop_environment_tolerance = 0.05
+	}
+	
+	planet_modifier = {
+		pop_environment_tolerance = 0.05
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_1"
+			planet = {
+				OR = {
+					has_building = "building_capital_1"
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+	
+	ai_special_building = yes
+	
+	ai_allow = {
+		has_any_resource = no
+	}
+	
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+building_sacred_grove = {
+	base_buildtime = 660
+	empire_unique = yes
+	
+	cost = {
+		minerals = 600
+        energy = 350
+		influence = 50
+	}
+	
+	required_resources = {
+		energy = 10
+		sr_sacred_plant = 3
+	}
+	
+
+	country_modifier = {
+		pop_growth_req_mult = -0.1
+		pop_ethic_shift = -0.1
+		army_morale = 0.1
+		army_health = 0.1
+		leader_age = 40
+		species_leader_exp_gain = 0.15
+		country_society_tech_research_speed = 0.15
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_2"
+			planet = {
+				OR = {
+					has_building = "building_capital_2"
+					has_building = "building_capital_3"
+				}
+			}
+		}
+	}
+	
+	prerequisites = {
+		"tech_spirit_planet"
+	}
+	
+	ai_special_building = yes
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
+
+building_industrial_cap = {
+	base_buildtime = 960
+	empire_unique = yes
+	
+	cost = {
+		minerals = 3500
+      		energy = 1000
+		influence = 100
+	}
+	
+	required_resources = {
+		energy = 50
+		sr_hyperium = 3
+	}
+	
+	country_modifier = {
+		planet_building_cost_mult = -0.15
+		building_time_mult = 0.15
+                spaceport_ship_build_cost_mult = -0.15
+		spaceport_ship_build_time_mult = 0.15
+		country_engineering_tech_research_speed = 0.2
+	}
+	
+	adjacency_bonus = {
+		resource_minerals_add = 3
+		resource_energy_add = 3
+		resource_engineering_research_add = 3
+		resource_food_add = -6
+	}
+
+	planet_modifier = {
+                pop_environment_tolerance = -0.25
+                tile_resource_food_mult = -0.25
+	}
+	
+	allow = {
+		custom_tooltip = {
+			text = "requires_building_capital_3"
+			planet = {
+					has_building = "building_capital_3"
+			}
+		}
+	}
+	
+	prerequisites = {
+		"tech_high_tech_industry"
+	}
+	
+	ai_special_building = yes
+	ai_weight = {
+		factor = 1000
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}	
+	}
+}
