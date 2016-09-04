@@ -48,15 +48,6 @@ ethic_categories = {
 
 }
 
-
-	
-
-
-
-
-
-
-
 ethic_bureaucracy = {
 	cost = 2
 	category = "bureau"
