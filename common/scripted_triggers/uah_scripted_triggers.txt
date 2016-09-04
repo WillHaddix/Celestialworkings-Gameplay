@@ -1,0 +1,66 @@
+can_lead = {
+    OR = {
+        is_same_species = owner
+        owner = {
+            has_policy_flag = leadership_allow_all
+        }
+        AND = {
+            owner = {
+                has_policy_flag = leadership_allow_robot
+            }
+            is_same_species = ROBOT_POP_SPECIES_3
+        }
+        AND = {
+            owner = {
+                has_policy_flag = leadership_allow_xeno
+            }
+            NOT = {
+                is_same_species = ROBOT_POP_SPECIES_3
+            }
+        }
+    }
+}
+
+# "I'd like to help you, son, but you're too young to vote."
+pop_can_vote = {
+    # Sanity check
+    exists = owner
+    owner = {
+        has_election_type = democratic
+    }
+
+    # Not a (pre-synthetic) Robot, slave, or growing pop
+    NOT = {
+        is_slavebot = yes
+        is_growing = yes
+    }
+    OR = {
+        # Primary species can vote under any policy
+        is_same_species = owner
+
+        # Xenos can vote
+        AND = {
+            owner = {
+                has_policy_flag = voting_allowed_all
+            }
+            NOT = { is_species = ROBOT_POP_SPECIES_3 }
+        }
+        AND = {
+            owner = {
+                has_policy_flag = voting_allowed_all
+                has_policy_flag = ai_full_rights
+            }
+            is_species = ROBOT_POP_SPECIES_3
+        }
+    }
+}
+
+is_counted = {
+    has_pop_flag = counted
+}
+is_species_a = {
+    has_pop_flag = species_a
+}
+is_species_b = {
+    has_pop_flag = species_b
+}

@@ -1,0 +1,376 @@
+######################################
+####mod ethic rebuild - traditions####
+
+
+ethic_categories = {
+	
+	res = {
+		opinions = { 1 1 1 1 1 }
+	}
+	
+	bureau = {
+		opinions = { 1 1 1 1 1 }
+	}
+	
+	rob = {
+		opinions = { 1 1 1 1 1 }
+	}
+	
+	expan = {
+		opinions = { 1 1 1 1 1 }
+	}
+	
+	explor = {
+		opinions = { 1 1 1 1 1 }
+	}
+	
+	min = {
+		opinions = { 1 1 1 1 1 }
+	}
+	
+	agri = {
+		opinions = { 1 1 1 1 1 }
+	}
+	
+	bio = {
+		opinions = { 1 1 1 1 1 }
+	}
+	
+	milind = {
+		opinions = { 1 1 1 1 1 }
+	}
+	
+	ene = {
+		opinions = { 1 1 1 1 1 }
+	}	
+	
+
+
+}
+
+
+	
+
+
+
+
+
+
+
+ethic_bureaucracy = {
+	cost = 2
+	category = "bureau"
+
+	
+	country_modifier = {
+		influence_gain_mult = 0.15
+		country_leader_cap = 1
+		leader_influence_cost = -0.1
+		diplomacy_influence_cost = -0.1
+		edict_influence_cost = -0.1
+		country_society_tech_research_speed = 0.05
+		tile_resource_energy_mult = -0.05
+
+
+	}
+	
+	
+	random_weight = {
+		value = 50
+	}	
+	
+
+}
+
+
+
+
+ethic_robotization = {
+	cost = 2
+	category = "rob"
+
+	#building Research Coordination
+	
+	country_modifier = {
+	
+		         country_core_sector_system_cap = 1
+                 all_technology_research_speed = 0.05
+				 science_ship_survey_speed = 0.1
+				 building_time_mult = -0.08
+		         spaceport_ship_build_time_mult = -0.08
+                 pop_robot_production_output = 0.25
+				 ship_auto_repair_add = 0.04
+				 pop_growth_req_mult = 0.15
+
+
+	}
+	
+	
+	random_weight = {
+		value = 50
+	}	
+	
+
+}
+
+
+ethic_energy = {
+	cost = 2
+	category = "ene"
+	
+	country_modifier = {
+	
+	               		tile_resource_energy_mult = 0.1 
+					    max_energy = 1500  
+	                    building_power_plant_1_build_cost_mult = -0.2
+						shipsize_mining_station_build_cost_mult = -0.2
+						category_industry_research_speed_mult = 0.2
+                        category_particles_research_speed_mult = 0.2
+						country_physics_tech_research_speed = 0.03
+						country_engineering_tech_research_speed = 0.03
+						influence_gain_mult = -0.15
+	
+
+
+ 
+	}
+	
+	
+	random_weight = {
+		value = 50
+	}	
+	
+
+}
+
+
+ethic_expansion = {
+	cost = 2
+	category = "expan"
+
+	#terraforming unhabitable worlds
+	
+	country_modifier = {
+	
+		shipsize_colonizer_build_cost_mult = -0.2
+		shipsize_colonizer_construction_speed_mult = 0.2
+		planet_colony_development_speed_mult = 0.2
+		category_new_worlds_research_speed_mult = 0.25
+		terraforming_cost_mult = -0.2
+        shipsize_terraform_station_build_cost_mult = -0.2
+		country_society_tech_research_speed = 0.05
+
+
+ 
+       
+	}
+	
+	
+	random_weight = {
+		value = 50
+	}	
+	
+
+}
+
+
+ethic_exploration = {
+	cost = 2
+	category = "explor"
+
+		#building Research Coordination, Deep Space Scanner, High-Efficient FTL Technologies
+	
+	country_modifier = {
+	
+                ship_sensor_range_mult = 0.25
+		        science_ship_survey_speed = 0.2
+		        ship_anomaly_generation_chance_mult = 0.2
+		        ship_anomaly_fail_risk = -0.2
+                ship_anomaly_research_speed_mult = 0.2
+                shipsize_research_station_build_cost_mult = -0.2
+	            ship_ftl_wormhole_speed_mult = 0.15
+                ship_ftl_wormhole_range_mult = 0.15
+		        ship_ftl_jumpdrive_range_mult = 0.15
+		        ship_interstellar_speed_mult = 0.15
+                ship_ftl_warp_range_mult = 0.15			
+				country_physics_tech_research_speed = 0.15
+
+ 
+       
+	}
+	
+	
+	random_weight = {
+		value = 50
+	}	
+	
+
+}
+
+
+
+
+ethic_recycling = {
+	cost = 2
+	category = "res"
+
+	
+	country_modifier = {
+	             
+				 pop_environment_tolerance = 0.05
+				 planet_building_cost_mult = -0.1
+                 spaceport_ship_build_cost_mult = -0.1
+				 tile_resource_energy_mult = 0.05			 
+				 category_new_worlds_research_speed_mult = 0.2
+				 category_industry_research_speed_mult = 0.2
+				 country_society_tech_research_speed = 0.03
+				 country_engineering_tech_research_speed = 0.03
+                 influence_gain_mult = -0.07
+				 building_time_mult = 0.1
+		         spaceport_ship_build_time_mult = 0.1
+
+	}
+	
+	
+	random_weight = {
+		value = 50
+	}	
+	
+
+}
+
+
+
+
+
+ethic_mining = {
+	cost = 2
+	category = "min"
+
+	#Building "Metallurgical Plant"
+	
+	country_modifier = {
+	
+                      tile_resource_minerals_mult = 0.15
+                      max_minerals = 2500
+                      building_mining_network_1_build_cost_mult = -0.2
+					  shipsize_mining_station_build_cost_mult = -0.2
+                      category_industry_research_speed_mult = 0.2
+                      category_materials_research_speed_mult = 0.2
+					  country_engineering_tech_research_speed = 0.05
+
+ 
+       
+	}
+	
+	
+	random_weight = {
+		value = 50
+	}	
+	
+
+}
+
+
+
+ethic_agri = {
+	cost = 2
+	category = "agri"
+
+	#Building "Food Grand Bazaar", "Soil Enrichment Facility"
+	
+	country_modifier = {
+	
+	                  tile_resource_food_mult = 0.2
+                      building_hydroponics_farm_1_build_cost_mult = -0.25                      
+                      category_biology_research_speed_mult = 0.2
+					  pop_environment_tolerance = 0.05
+                      planet_clear_blocker_time_mult = -0.2
+                      planet_clear_blocker_cost_mult = -0.2
+					  country_society_tech_research_speed = 0.05
+
+
+       
+	}
+	
+	
+	random_weight = {
+		value = 50
+	}	
+	
+
+}
+
+
+
+ethic_biotech = {
+	cost = 2
+	category = "bio"
+
+	#building Research Coordination
+	
+	country_modifier = {
+	
+                      leader_age = 25
+                      species_leader_exp_gain = 0.15
+					  pop_growth_req_mult = -0.1
+                      army_health = 0.15
+					  category_biology_research_speed_mult = 0.2
+					  category_computing_research_speed_mult = 0.2
+                      trait_points = 1
+					  country_society_tech_research_speed = 0.03
+					  country_physics_tech_research_speed = 0.03
+					  pop_happiness = -0.05
+ 
+	}
+	
+	
+	random_weight = {
+		value = 50
+	}	
+	
+
+}
+
+
+
+ethic_milind = {
+	cost = 2
+	category = "milind"
+
+	#special shipclass "Flagship"
+	
+	country_modifier = {
+	
+	                  spaceport_ship_build_time_mult = -0.05
+                      spaceport_ship_build_cost_mult = -0.1
+		              shipclass_military_station_build_cost_mult = -0.1
+					  ship_reparation_cost_mult = -0.15
+					  ship_reparation_speed_mult = 0.15
+                      ship_armor_mult = 0.05
+                      ship_weapon_damage = 0.05
+                      category_rocketry_research_speed_mult = 0.15
+                      category_materials_research_speed_mult = 0.15
+                      category_voidcraft_research_speed_mult = 0.15
+					  country_engineering_tech_research_speed = 0.03
+					  country_physics_tech_research_speed = 0.03
+					  pop_environment_tolerance = -0.07
+
+
+ 
+	}
+	
+	
+	random_weight = {
+		value = 50
+	}	
+	
+
+}
+
+
+
+
+
+
+

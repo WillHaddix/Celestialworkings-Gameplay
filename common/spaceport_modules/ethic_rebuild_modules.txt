@@ -1,0 +1,57 @@
+#ai_weight - checks that required resources are available by AI will be made in code for performance reasons
+
+#modifiers that can be added from modules
+#"modifier", category: MODIFIER_CATEGORY_SPACEPORT. things that affect the builder part of the spaceport. like construction costs and speeds
+#"orbit_modifier", category: MODIFIER_CATEGORY_FLEET | MODIFIER_CATEGORY_SHIP. applied on all orbiting fleets and ships
+#"planet_modifier", category: MODIFIER_CATEGORY_PLANET | MODIFIER_CATEGORY_POP | MODIFIER_CATEGORY_TILE. affects the planet
+#"station_modifier", category: MODIFIER_CATEGORY_FLEET | MODIFIER_CATEGORY_SHIP. affects the ship part of the spaceport. like health and armor
+#"ship_modifier", category: MODIFIER_CATEGORY_SHIP. affects all ships that are built by this space port
+
+
+hyperium_refinery = {
+	icon = "GFX_spaceport_module_hyperium_refinery"
+	section = "REFINERY_SPACEPORT_SECTION"
+	construction_days = 650
+	prerequisites = { "tech_high_tech_industry" }
+	spaceport_level = 2
+	
+	cost = {
+		minerals = 850
+	}
+	
+	required_resources = {
+		energy = 7
+		sr_hyperium = 1
+	}
+	
+	modifier = {
+		         spaceport_ship_build_cost_mult = -0.25
+		         spaceport_ship_build_time_mult = 0.25
+	}	
+	
+	ship_modifier = {
+		ship_hitpoints_mult = 0.25
+        ship_armor_mult = 0.25
+	}
+	
+	planet_modifier = {
+		pop_environment_tolerance = -0.1
+	}	
+		
+	
+	
+	ai_weight = {
+		weight = 10
+		modifier = {
+			factor = 0
+			from = { sector_controlled = yes }
+		}
+		modifier = {
+			factor = 0
+			from = { NOT = { has_spaceport_module = solar_panel_network } }
+		}
+	}
+}
+
+	
+

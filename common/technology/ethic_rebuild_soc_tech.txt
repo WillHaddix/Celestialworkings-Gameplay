@@ -1,0 +1,594 @@
+##################
+### TECH COSTS ###
+##################
+#If you change any of these, use replace in files so the values are the same across all files
+
+@tier1cost1 = 240
+@tier1cost2 = 360
+@tier1cost3 = 480
+@tier1cost4 = 600
+
+@tier2cost1 = 900
+@tier2cost2 = 1200
+@tier2cost3 = 1500
+@tier2cost4 = 1800
+
+@tier3cost1 = 2320
+@tier3cost2 = 2840
+@tier3cost3 = 3360
+@tier3cost4 = 3880
+
+####################
+### TECH WEIGHTS ###
+####################
+
+@tier1weight1 = 100
+@tier1weight2 = 95
+@tier1weight3 = 90
+@tier1weight4 = 85
+
+@tier2weight1 = 75
+@tier2weight2 = 70
+@tier2weight3 = 65
+@tier2weight4 = 60
+
+@tier3weight1 = 50
+@tier3weight2 = 45
+@tier3weight3 = 40
+@tier3weight4 = 35
+
+
+tech_bioreactor = {
+
+	cost = @tier3cost3
+	area = society
+	tier = 3
+	category = { industry }
+	prerequisites = { "tech_colonial_centralization" }
+	weight = @tier3weight3
+	is_rare = yes
+	
+	#unlocks Bio-processing Plant building
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOT = {
+				OR = {
+					has_ethic = ethic_green
+					has_ethic = ethic_fanatic_green
+
+				}
+			}
+		}
+		modifier = {
+			factor = 3
+			has_ethic = ethic_fanatic_green
+		}
+		
+		modifier = {
+			factor = 2
+			has_ethic = ethic_biotech
+		}		
+	}	
+	
+	ai_weight = {
+		modifier = {
+			factor = 2
+			has_ethic = ethic_fanatic_green
+		}
+		
+		modifier = {
+			factor = 2
+			has_ethic = ethic_biotech
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_industry"
+			}
+		}	
+	}
+}
+
+
+
+
+
+
+tech_ministry_of_equality = {
+	cost = @tier3cost3
+	area = society
+	tier = 3
+	category = { statecraft }
+	prerequisites = { "tech_galactic_administration" }
+	weight = @tier3weight3
+	is_rare = yes
+
+	
+	# unlocks Ministry of Equality empire wonder
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOT = {
+				OR = {
+					has_ethic = ethic_socialism
+					has_ethic = ethic_fanatic_socialism
+				}
+
+			}
+		}
+		modifier = {
+			factor = 2
+			has_ethic = ethic_fanatic_socialism
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+
+	}
+	
+	ai_weight = {
+		modifier = {
+			factor = 2
+			has_ethic = ethic_fanatic_socialism
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}
+	}
+}
+
+
+
+
+
+tech_ministry_of_defence = {
+	cost = @tier3cost3
+	area = society
+	tier = 3
+	category = { military_theory }
+	prerequisites = { "tech_galactic_administration" }
+	weight = @tier3weight3
+	is_rare = yes
+
+	
+	#unlocks Ministry of Defence building
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOT = {
+				OR = {
+					has_ethic = ethic_isolationist
+					has_ethic = ethic_fanatic_isolationist
+				}
+			}
+		}
+
+	}	
+	
+	ai_weight = {
+		modifier = {
+			factor = 2
+			has_ethic = ethic_fanatic_isolationist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_military_theory"
+			}
+		}	
+	}
+}
+
+
+
+
+tech_spirit_freedom = {
+	cost = @tier2cost2
+	area = society
+	tier = 2
+	category = { statecraft }
+	prerequisites = { "tech_colonial_centralization" }
+	weight = @tier2weight2
+
+	
+	#unlocks Spirit of Freedom edict
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOT = {
+					has_ethic = ethic_fanatic_individualist
+			}
+		}
+
+	}	
+	
+	ai_weight = {
+		modifier = {
+			factor = 2
+			has_ethic = ethic_fanatic_individualist
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}	
+	}
+}
+
+
+
+
+tech_div_crusade = {
+	cost = @tier2cost2
+	area = society
+	tier = 2
+	category = { statecraft }
+	prerequisites = { "tech_galactic_administration" }
+	weight = @tier2weight2
+	is_rare = yes
+
+	
+	#unlocks Divine Crusade edict
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOT = {
+				OR = {
+					has_government = sacred_un
+					has_government = div_imperium
+				}
+			}
+		}
+
+	}	
+	
+	ai_weight = {
+		modifier = {
+			factor = 2
+			has_government = div_imperium
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}	
+	}
+}
+
+
+#Atmospheric Purifying
+tech_atm_purifying = {
+	area = society
+	cost = @tier3cost3
+	tier = 3
+	category = { new_worlds }
+	prerequisites = { "tech_atmospheric_manipulation" }
+	weight = @tier3weight3
+	is_rare = yes
+
+	prereqfor_desc = {
+		diplo_action = {
+			title = "TECH_UNLOCK_TERRAFORMING_PURIFICATION_TITLE"
+			desc = "TECH_UNLOCK_TERRAFORMING_PURIFICATION_DESC"
+		}
+	}
+
+	weight_modifier = {
+	
+		modifier = {
+			factor = 0.5
+			NOT = {
+				OR = {
+				    has_ethic = ethic_expansion
+					has_government = eco_democracy
+					has_government = eco_utopia
+				}
+			}
+		}
+		
+		
+		modifier = {
+			factor = 0.5
+			NOT = {
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_expertise_new_worlds"
+				}
+			}
+		}
+		
+
+	}
+
+	ai_weight = {
+	    factor = 3 # rare tech
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+	}
+}
+
+#Uninhabitable World Terraformation
+tech_terraform_uninhabit = {
+	area = society
+	cost = @tier3cost3
+	tier = 3
+	category = { new_worlds }
+	prerequisites = { "tech_atmospheric_manipulation" }
+	weight = @tier3weight3
+	is_rare = yes
+
+	prereqfor_desc = {
+		diplo_action = {
+			title = "TECH_UNLOCK_TERRAFORMING_HABITABLE_TITLE"
+			desc = "TECH_UNLOCK_TERRAFORMING_HABITABLE_DESC"
+		}
+	}
+
+	weight_modifier = {
+	
+		modifier = {
+			factor = 0.5
+			NOT = {
+				OR = {
+				    has_ethic = ethic_expansion
+					has_government = eco_democracy
+					has_government = eco_utopia
+				}
+			}
+		}
+		
+		modifier = {
+			factor = 0.5
+			NOT = {
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_expertise_new_worlds"
+				}
+			}
+		}
+	}
+
+	ai_weight = {
+	    factor = 3 # rare tech
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+	}
+}
+
+#Terraforming to Gaia 
+tech_terraform_gaia = {
+	area = society
+	cost = @tier3cost4
+	tier = 3
+	category = { new_worlds }
+	prerequisites = { "tech_atmospheric_manipulation" "tech_colonization_3" }
+	weight = @tier3weight4
+	is_rare = yes
+
+	prereqfor_desc = {
+		diplo_action = {
+			title = "TECH_UNLOCK_TERRAFORMING_GAIA_TITLE"
+			desc = "TECH_UNLOCK_TERRAFORMING_GAIA_DESC"
+		}
+	}
+
+
+	weight_modifier = {
+		factor = 0.75
+		modifier = {
+			factor = 0
+			NOT = {
+				OR = {
+					has_government = eco_democracy
+					has_government = eco_utopia
+				}
+			}
+		}
+		
+		
+		modifier = {
+			factor = 0.33
+			NOT = {
+				research_leader = {
+					area = society
+					has_trait = "leader_trait_expertise_new_worlds"
+				}
+			}
+		}
+		
+
+	}
+
+	ai_weight = {
+		factor = 5 # rare tech
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}
+	}
+}
+
+
+
+
+tech_spirit_agri = {
+	cost = @tier1cost1
+	area = society
+	tier = 1
+	category = { biology }
+	prerequisites = { "tech_planetary_government" }
+	weight = @tier1weight1
+	is_rare = yes
+	
+	#unlocks "Food Grand Bazaar", "Soil Enrichment Facility"
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOT = {
+					has_ethic = ethic_agri
+					has_government = agri_consortium
+					has_government = agri_syndicate
+			}
+		}
+
+			
+	}	
+	
+	ai_weight = {
+		modifier = {
+			factor = 2
+			has_ethic = ethic_agri
+		}
+		
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_biology"
+			}
+		}	
+	}
+}
+
+
+tech_loyalty = {
+	cost = @tier3cost3
+	area = society
+	tier = 3
+	category = { statecraft }
+	prerequisites = { "tech_colonial_centralization" }
+	weight = @tier3weight3
+	is_rare = yes
+
+	
+	#unlocks Doctrine: Loyalty edict
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOT = {
+				OR = {
+					has_government = police_state
+					has_government = adv_police_state
+				}
+			}
+		}
+
+	}	
+	
+	ai_weight = {
+		modifier = {
+			factor = 2
+			has_government = adv_police_state
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_statecraft"
+			}
+		}	
+	}
+}
+
+
+
+
+
+tech_spirit_planet = {
+	cost = @tier3cost3
+	area = society
+	tier = 3
+	category = { new_worlds }
+	prerequisites = { "tech_galactic_administration" }
+	weight = @tier3weight3
+	is_rare = yes
+	
+	#unlocks buildings: Sacred Grove, Recreational Site 
+	
+		modifier = {	
+	         pop_happiness = 0.05
+			 }
+	
+	weight_modifier = {
+		modifier = {
+			factor = 0
+			NOT = {
+			
+			     OR = {
+			            AND = {				
+			               OR = {
+					             has_ethic = ethic_green
+					             has_ethic = ethic_fanatic_green
+				                }
+
+				           OR = {
+					             has_ethic = ethic_spiritualist
+					             has_ethic = ethic_fanatic_spiritualist
+				                }
+		                      }
+
+				            OR = {
+					              has_government = eco_democracy
+					              has_government = eco_utopia
+				                 }
+			  }	
+			}
+		}
+
+	}	
+	
+	ai_weight = {
+	    factor = 4
+		modifier = {
+			factor = 2
+			has_ethic = ethic_fanatic_green
+			has_ethic = ethic_fanatic_spiritualist
+			has_government = eco_democracy
+			has_government = eco_utopia
+		}
+		modifier = {
+			factor = 1.25
+			research_leader = {
+				area = society
+				has_trait = "leader_trait_expertise_new_worlds"
+			}
+		}	
+	}
+}
+
+

@@ -1,0 +1,8 @@
+on_game_start = {
+    events = { uah.2 }
+}
+
+# In case game started before UAH was installed:
+on_yearly_pulse = {
+    events = { uah.2 }
+}

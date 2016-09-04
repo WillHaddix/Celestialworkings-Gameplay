@@ -1,0 +1,327 @@
+namespace = uah
+
+# UAH: Kill off growing pops that are stuck growing
+pop_event = {
+    id = uah.1
+    hide_window = yes
+
+    trigger = {
+        is_growing = yes
+        is_robot_pop = no # Exclude robotic species classes in other mods
+        NOT = { is_species_class = ROBOT }
+        planet = {
+            count_pops = {
+                limit = {
+                    is_same_species = root
+                    is_growing = no
+                }
+                count = 0
+            }
+        }
+    }
+
+    immediate = {
+        kill_pop = yes
+    }
+}
+
+# Begin fortnightly check for a new main species:
+event = {
+    id = uah.2
+    hide_window = yes
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = { has_global_flag = polling_for_new_main_species }
+    }
+
+    immediate = {
+        set_global_flag = polling_for_new_main_species
+        every_country = {
+            limit = { exists = home_planet }
+            country_event = { id = uah.3 }
+        }
+    }
+}
+
+
+# Promote another species to status of "main" species if there are no pops left
+# of the current main species owner_main_species
+country_event = {
+    id = uah.3
+    title = uah.3.name
+    picture = GFX_evt_throne_room
+    desc = {
+        text = uah.3.desc.democracy
+        trigger = { has_election_type = democratic }
+    }
+    desc = {
+        text = uah.3.desc.oligarchy
+        trigger = { has_election_type = oligarchic }
+    }
+    desc = {
+        text = uah.3.desc.autocracy
+        trigger = {
+            has_election_type = none
+            NOT = {
+                has_ethic = ethic_pacifist
+                has_ethic = ethic_fanatic_pacifist
+            }
+        }
+    }
+    desc = {
+        text = uah.3.desc.autocracy_pacifist
+        trigger = {
+            has_election_type = none
+            OR = {
+                has_ethic = ethic_pacifist
+                has_ethic = ethic_fanatic_pacifist
+            }
+        }
+    }
+
+    is_triggered_only = yes
+
+    trigger = {
+        NOT = {
+            any_owned_pop = { is_same_species = root }
+        }
+        any_owned_planet = { is_capital = yes }
+    }
+
+    immediate = {
+        ruler = {
+            save_event_target_as = old_ruler
+        }
+        owner_species = {
+            save_event_target_as = old_species
+        }
+
+        capital_scope = {
+            set_variable = {
+                which = species_a_count
+                value = 0
+            }
+
+            # Set a random species as having the plurality (species A):
+            random_pop = {
+                limit = {
+                    is_growing = no
+                    is_slavebot = no
+                    is_sentient = yes
+                }
+                planet = {
+                    every_owned_pop = {
+                        limit = {
+                            is_same_species = prevprev
+                        }
+                        set_pop_flag = species_a
+                    }
+                }
+            }
+
+
+            # For some reason, can't mutate variables in a pop scope:
+            while = {
+                limit = {
+                    any_pop = {
+                        is_species_a = yes
+                        is_counted = no
+                    }
+                }
+                random_pop = {
+                    limit = {
+                        is_species_a = yes
+                        is_counted = no
+                    }
+                    set_pop_flag = counted
+                }
+                change_variable = {
+                    which = species_a_count
+                    value = 1
+                }
+            }
+
+            # Go go bubblesort!
+            while = {
+                limit = {
+                    any_pop = { is_counted = no }
+                }
+
+                set_variable = {
+                    which = species_b_count
+                    value = 0
+                }
+
+                # Flag all members of species B:
+                random_pop = {
+                    limit = {
+                        is_growing = no
+                        is_slavebot = no
+                        is_sentient = yes
+                        is_counted = no
+                    }
+                    planet = {
+                        every_owned_pop = {
+                            limit = { is_same_species = prevprev }
+                            set_pop_flag = species_b
+                        }
+                    }
+                }
+
+                # Count 'em up:
+                while = {
+                    limit = {
+                        any_pop = {
+                            is_species_b = yes
+                            is_counted = no
+                        }
+                    }
+                    random_pop = {
+                        limit = {
+                            is_species_b = yes
+                            is_counted = no
+                        }
+                        set_pop_flag = counted
+                    }
+                    change_variable = {
+                        which = species_b_count
+                        value = 1
+                    }
+                }
+
+                # New winner? Flag as species A.
+                IF = {
+                    limit = {
+                        check_variable = {
+                            which = species_b_count
+                            value > species_a_count
+                        }
+                    }
+                    every_owned_pop = {
+                        IF = {
+                            limit = { is_species_b = yes }
+                            set_pop_flag = species_a
+                            ELSE = {
+                                remove_pop_flag = species_a
+                            }
+                        }
+                    }
+                    set_variable = {
+                        which = species_a_count
+                        value = species_b_count
+                    }
+                }
+
+                every_owned_pop = {
+                    remove_pop_flag = species_b
+                }
+            }
+
+            # Declare species A the winner:
+            random_pop = {
+                limit = { is_species_a = yes }
+                owner = {
+                    change_dominant_species = prev
+                }
+            }
+
+            # Cleanup:
+            every_owned_pop = {
+                remove_pop_flag = counted
+                remove_pop_flag = species_a
+                remove_pop_flag = species_a_count
+                remove_pop_flag = species_b
+                remove_pop_flag = species_b_count
+            }
+        }
+
+        # Create a new ruler if the old autocratic one is about to be deposed:
+        IF = {
+            limit = {
+                ruler = { can_lead = no }
+                has_election_type = none
+            }
+
+            create_leader = {
+                type = ruler
+                species = owner_main_species
+                name = "Tippytoes"
+                skill = 0
+                traits = {
+                    trait = random_trait
+                    trait = random_trait
+                }
+            }
+            last_created_leader = {
+                save_event_target_as = new_ruler
+            }
+        }
+
+        # Purge ineligible leadership, if any:
+        country_event = { id = uah.4 }
+
+        # Check again in 14 days:
+        country_event = {
+            id = uah.3
+            days = 14
+        }
+
+    }
+
+    option = { name = OK }
+}
+
+# Purge leadership after a new species becomes dominant:
+country_event = {
+    id = uah.4
+
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        OR = {
+            has_policy_flag = leadership_allow_dominant_only
+            has_policy_flag = leadership_allow_xeno
+            has_policy_flag = leadership_allow_robot
+        }
+    }
+
+    immediate = {
+        # Install the new ruler:
+        IF = {
+            limit = {
+                has_election_type = none
+                NOT = { exists = ruler }
+            }
+
+            set_leader = event_target:new_ruler
+        }
+
+        every_owned_leader = {
+            limit = { can_lead = no }
+            kill_leader_any_type = yes
+        }
+
+    }
+}
+
+planet_event = {
+    id = uah.5
+
+    hide_window = yes
+    is_triggered_only = yes
+
+    trigger = {
+        owner = {
+            NOT = {
+                any_owned_planet = { is_capital = yes }
+            }
+        }
+    }
+
+    immediate = {
+        set_capital = yes
+    }
+}

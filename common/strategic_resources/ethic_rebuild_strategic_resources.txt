@@ -1,0 +1,14 @@
+sr_sacred_plant = {
+	AI_category = strategic_resource
+	prerequisites = { "tech_spirit_planet" }
+	tradable = yes
+	is_rare = yes
+}
+
+
+sr_hyperium = {
+	AI_category = strategic_resource
+	prerequisites = { "tech_high_tech_industry" }
+	tradable = yes
+	is_rare = yes
+}

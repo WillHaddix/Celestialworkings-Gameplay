@@ -1,0 +1,131 @@
+#Root = country, attacker
+#This = country, target
+#This rule is a condition for declaring war
+can_declare_war = {
+	custom_tooltip_fail = {
+		text = "ACTION_DECLARE_WAR_OVERLORD_ON_SUBJECT"
+		NOT = {
+			AND = {
+				OR = {
+					is_subject_type = "vassal"
+					is_subject_type = "protectorate"
+				}
+				overlord = {
+					is_same_value = root
+				}
+			}
+		}
+	}
+    # UAH: Prevent protectorates from declaring war on anyone but their
+    # overlord.
+    custom_tooltip_fail = {
+        text = "ACTION_DECLARE_WAR_SUBJECT_NOT_ALLOWED"
+        OR = {
+            AND = {
+                root = {
+                    OR = {
+                        is_subject_type = vassal
+                        is_subject_type = protectorate
+                    }
+                }
+                is_overlord_to = root
+            }
+            root = { is_subject_type = tributary }
+            root = {
+                NOT = { exists = overlord }
+            }
+        }
+    }
+
+    # UAH: Prevent empire A declaring war against the subjects of empire B when
+    # A and B have an independence guarantee, non-aggression pact, or defensive
+    # pact
+    custom_tooltip_fail = {
+        text = "ACTION_DECLARE_WAR_OVERLORD_HAS_GUARANTEE"
+        NOT = {
+            AND = {
+                exists = overlord
+                root = { is_guaranteeing = prev.overlord }
+            }
+        }
+    }
+    custom_tooltip_fail = {
+        text = "ACTION_DECLARE_WAR_OVERLORD_HAS_NON_AGGRESSION_PACT"
+        NOT = {
+            AND = {
+                exists = overlord
+                overlord = { has_non_agression_pact = root }
+            }
+        }
+    }
+    custom_tooltip_fail = {
+        text = "ACTION_DECLARE_WAR_OVERLORD_HAS_DEFENSIVE_PACT"
+        NOT = {
+            AND = {
+                exists = overlord
+                overlord = { has_defensive_pact = root }
+            }
+        }
+    }
+    custom_tooltip_fail = {
+        text = "ACTION_DECLARE_WAR_OVERLORD_IN_ALLIANCE"
+        NOT = {
+            AND = {
+                exists = overlord
+                overlord = { is_in_alliance_with = root }
+            }
+        }
+    }
+    custom_tooltip_fail = {
+        text = "ACTION_DECLARE_WAR_OVERLORD_IN_FEDERATION"
+        NOT = {
+            AND = {
+                exists = overlord
+                overlord = { is_in_federation_with = root }
+            }
+        }
+    }
+
+	if = {
+		limit = { 
+			ROOT = {
+				has_policy_flag = no_wars
+			}
+		}
+		custom_tooltip = {
+			text = "CAN_DECLARE_WAR_POLICY"
+			always = no
+		}
+	}
+}
+
+# Check if a player can resettle a pop to a tile on another planet
+# This = Pop
+# From = Country
+# FromFrom = Target tile, optional
+can_resettle_pop = {
+	custom_tooltip = {
+		text = "RESETTLE_POP_IS_GROWING"
+		exists = this
+		is_growing = no
+	}
+	custom_tooltip = {
+		text = "RESETTLEMENT_POLICY_DISABLED"
+		OR = {
+            AND = {
+                exists = FROM # UAH: No real issued caused except error log noise
+                FROM = {
+                    has_policy_flag = resettlement_allowed
+                }
+            }
+			AND = {
+				exists = this
+				OR = {
+					has_trait = trait_robotic_1 # allow if non-sentient robot
+					has_trait = trait_robotic_2 # allow if non-sentient robot
+					is_enslaved = yes # allow if enslaved
+				}
+			}
+		}
+	}
+}

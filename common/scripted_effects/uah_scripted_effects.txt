@@ -1,0 +1,48 @@
+# Reliable Dr. Seuss method for counting traits:
+count_leader_traits = {
+    IF = {
+        limit = {
+            NOT = { has_leader_flag = two_trait }
+        }
+        set_leader_flag = two_trait
+        ELSE = {
+            IF = {
+                limit = {
+                    NOT = { has_leader_flag = red_trait }
+                }
+                set_leader_flag = red_trait
+                ELSE = {
+                    IF = {
+                        limit = {
+                            NOT = { has_leader_flag = blue_trait }
+                        }
+                        set_leader_flag = blue_trait
+                    }
+                }
+            }
+        }
+    }
+}
+
+kill_leader_any_type = {
+    kill_leader = {
+        type = admiral
+        show_notification = no
+    }
+    kill_leader = {
+        type = general
+        show_notification = no
+    }
+    kill_leader = {
+        type = governor
+        show_notification = no
+    }
+    kill_leader = {
+        type = scientist
+        show_notification = no
+    }
+    kill_leader = {
+        type = ruler
+        show_notification = no
+    }
+}

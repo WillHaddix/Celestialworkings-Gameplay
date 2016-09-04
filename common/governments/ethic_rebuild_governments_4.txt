@@ -1,0 +1,1965 @@
+
+
+
+
+# Anarcho-Communism
+anarch_communism = {
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+		OR = {
+			has_ethic = "ethic_fanatic_individualist"
+		}
+
+		OR = {
+			has_ethic = "ethic_fanatic_socialism"
+		}
+			
+		
+
+		NOT = { has_ethic = "ethic_industrial" }
+		NOT = { has_ethic = "ethic_fanatic_industrial" }	
+		NOT = { has_ethic = "ethic_elitist" }
+		NOT = { has_ethic = "ethic_fanatic_elitist" }	
+		NOT = { has_ethic = "ethic_xenophobe" }
+		NOT = { has_ethic = "ethic_fanatic_xenophobe" }	
+		NOT = { has_ethic = "ethic_bureaucracy" }		
+
+	}
+	
+	modifier = {
+                      
+                      pop_growth_req_mult = -0.2
+                      country_society_tech_research_speed = 0.25
+					  pop_happiness = 0.1
+					  pop_peace_happiness = 0.05
+					  country_leader_pool_size = 1
+					  leader_influence_cost = -0.1
+                      pop_migration_speed = 0.25   
+					  planet_migration_xeno_pull = 0.15
+					  pop_xenophobia = -0.15  
+					  country_sector_cap_add = 1
+					  influence_gain_mult = -0.25					  
+					  country_leader_cap = -3
+				      tile_resource_energy_mult = -0.05
+                      
+
+
+                
+	}
+	
+	uses_mandates = yes
+	election_term_years = 5
+	re_election_allowed = yes
+	election_type = democratic
+	
+	ruler_title = RT_PRESIDENT
+	upgrade = anarch_com_utopia
+}
+
+
+
+
+# Advanced Anarcho-Communism
+anarch_com_utopia = {
+	prerequisites = { "tech_galactic_administration" }
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+		OR = {
+			has_ethic = "ethic_fanatic_individualist"
+		}
+
+		OR = {
+			has_ethic = "ethic_fanatic_socialism"
+		}
+					
+
+		NOT = { has_ethic = "ethic_industrial" }
+		NOT = { has_ethic = "ethic_fanatic_industrial" }	
+		NOT = { has_ethic = "ethic_elitist" }
+		NOT = { has_ethic = "ethic_fanatic_elitist" }	
+		NOT = { has_ethic = "ethic_xenophobe" }
+		NOT = { has_ethic = "ethic_fanatic_xenophobe" }	
+		NOT = { has_ethic = "ethic_bureaucracy" }			
+
+	}
+	
+	modifier = {
+                      pop_growth_req_mult = -0.4
+                      country_society_tech_research_speed = 0.5
+					  pop_happiness = 0.2
+					  pop_peace_happiness = 0.1
+					  country_leader_pool_size = 2
+					  leader_influence_cost = -0.2
+                      pop_migration_speed = 0.5   
+					  planet_migration_xeno_pull = 0.3
+					  pop_xenophobia = -0.3  
+					  country_sector_cap_add = 2
+					  influence_gain_mult = -0.5					  
+					  country_leader_cap = -6
+					  tile_resource_energy_mult = -0.1
+
+
+	}
+	
+	uses_mandates = yes
+	election_term_years = 5
+	re_election_allowed = yes
+	election_type = democratic
+	
+	ruler_title = RT_PRESIDENT
+	
+	pickable_at_start = no
+}
+
+
+
+
+
+# Agricultural Consortium
+agri_consortium = {
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+		
+
+		NOT = { has_ethic = "ethic_fanatic_collectivist" }
+		NOT = { has_ethic = "ethic_fanatic_individualist" }
+		NOT = { has_ethic = "ethic_socialism" }
+		NOT = { has_ethic = "ethic_fanatic_socialism" }	
+		NOT = { has_ethic = "ethic_industrial" }
+		NOT = { has_ethic = "ethic_fanatic_industrial" }		
+		
+
+
+	}
+	
+            modifier = {
+	
+	                  tile_resource_food_mult = 0.2
+                      building_hydroponics_farm_1_build_cost_mult = -0.25                     
+                      category_biology_research_speed_mult = 0.2
+					  pop_environment_tolerance = 0.05
+                      planet_clear_blocker_time_mult = -0.2
+                      planet_clear_blocker_cost_mult = -0.2
+
+       
+	        }	
+	
+
+	
+	election_term_years = 25
+	election_term_variance = 5 # +/- 5 years
+	election_type = oligarchic
+	can_have_emergency_elections = yes
+	emergency_election_cost = 200
+	has_agendas = yes
+	
+	max_election_candidates = 4
+	election_candidates = {
+		modifier = {
+			add = 1000
+			OR = {
+				leader_class = ruler
+				AND = {
+					exists = pop_faction
+					pop_faction = {
+						is_scope_valid = yes
+						is_pop_faction_type = loyalist
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 100
+			leader_class = governor
+		}
+	}
+	
+	ruler_title = RT_CEO_1
+	upgrade = agri_syndicate
+}
+
+
+
+# Agri-Syndicate
+agri_syndicate = {
+	prerequisites = { "tech_galactic_administration" }
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+	
+
+
+		NOT = { has_ethic = "ethic_fanatic_collectivist" }
+		NOT = { has_ethic = "ethic_fanatic_individualist" }
+		NOT = { has_ethic = "ethic_socialism" }
+		NOT = { has_ethic = "ethic_fanatic_socialism" }			
+		NOT = { has_ethic = "ethic_industrial" }
+		NOT = { has_ethic = "ethic_fanatic_industrial" }						
+
+
+	}
+	
+	modifier = {
+	                  tile_resource_food_mult = 0.4
+                      building_hydroponics_farm_1_build_cost_mult = -0.5                     
+                      category_biology_research_speed_mult = 0.4
+					  pop_environment_tolerance = 0.1
+                      planet_clear_blocker_time_mult = -0.4
+                      planet_clear_blocker_cost_mult = -0.4
+					  
+
+	}
+	
+	election_term_years = 25
+	election_term_variance = 5 # +/- 5 years
+	election_type = oligarchic
+	can_have_emergency_elections = yes
+	emergency_election_cost = 200
+	has_agendas = yes
+	
+	max_election_candidates = 4
+	election_candidates = {
+		modifier = {
+			add = 1000
+			OR = {
+				leader_class = ruler
+				AND = {
+					exists = pop_faction
+					pop_faction = {
+						is_scope_valid = yes
+						is_pop_faction_type = loyalist
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 100
+			leader_class = governor
+		}
+	}
+	
+	ruler_title = RT_CEO_1
+	
+	pickable_at_start = no
+}
+
+
+
+
+
+
+# Pioneer's League
+un_colonies = {
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+
+	
+		OR = {
+			has_ethic = "ethic_individualist"
+			has_ethic = "ethic_fanatic_individualist"
+		}
+		
+		OR = {
+			has_ethic = "ethic_expansionist"
+			has_ethic = "ethic_fanatic_expansionist"
+		}		
+		
+
+
+	}
+	
+	modifier = {
+	
+		shipsize_colonizer_build_cost_mult = -0.2
+		shipsize_colonizer_construction_speed_mult = 0.2
+		planet_colony_development_speed_mult = 0.2
+		category_new_worlds_research_speed_mult = 0.25
+		terraforming_cost_mult = -0.2
+        shipsize_terraform_station_build_cost_mult = -0.2
+
+		
+		}
+	
+	
+	uses_mandates = yes
+	election_term_years = 10
+	re_election_allowed = yes
+	election_type = democratic
+	
+	ruler_title = RT_PRESIDENT
+	upgrade = star_con
+}
+
+
+# Pioneer's Federation
+star_con = {
+	prerequisites = { "tech_galactic_administration" }
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+
+		
+		OR = {
+			has_ethic = "ethic_individualist"
+			has_ethic = "ethic_fanatic_individualist"
+		}
+		
+		OR = {
+			has_ethic = "ethic_expansionist"
+			has_ethic = "ethic_fanatic_expansionist"
+		}	
+
+
+
+	}
+	
+	modifier = {
+	    shipsize_colonizer_build_cost_mult = -0.4
+		shipsize_colonizer_construction_speed_mult = 0.4
+		planet_colony_development_speed_mult = 0.4
+		category_new_worlds_research_speed_mult = 0.5
+		terraforming_cost_mult = -0.4
+        shipsize_terraform_station_build_cost_mult = -0.4
+	}
+	
+	uses_mandates = yes
+	election_term_years = 10
+	re_election_allowed = yes
+	election_type = democratic
+	
+	ruler_title = RT_PRESIDENT
+	
+	pickable_at_start = no
+}
+
+
+
+# Divine Imperium
+sacred_un = {
+	has_heir = yes
+	use_regnal_names = yes
+	dynastic_last_names = yes
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+
+		
+		OR = {
+			has_ethic = "ethic_collectivist"
+			has_ethic = "ethic_fanatic_collectivist"
+		}
+		
+		OR = {
+			has_ethic = "ethic_spiritualist"
+			has_ethic = "ethic_fanatic_spiritualist"
+		}
+		
+		OR = {
+			has_ethic = "ethic_militarist"
+			has_ethic = "ethic_fanatic_militarist"
+		}			
+	
+
+
+		
+	}
+	
+	modifier = {
+		pop_ethic_shift = -0.15
+        pop_food_req_mult = -0.15		
+		army_morale = 0.25
+		army_morale_damage_mult = 0.25
+		army_health = 0.25
+		general_skill_levels = 1
+        category_psionics_research_speed_mult = 0.25
+		country_physics_tech_research_speed = -0.15
+
+
+	}
+	
+	ruler_title = RT_HEMPEROR
+	heir_title = HT_HPRINCE
+	upgrade = div_imperium
+}
+
+# Divine Ascendancy
+div_imperium = {
+	prerequisites = { "tech_galactic_administration" }
+	has_heir = yes
+	use_regnal_names = yes
+	dynastic_last_names = yes
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+		OR = {
+			has_ethic = "ethic_collectivist"
+			has_ethic = "ethic_fanatic_collectivist"
+		}
+		
+		OR = {
+			has_ethic = "ethic_spiritualist"
+			has_ethic = "ethic_fanatic_spiritualist"
+		}
+		
+		OR = {
+			has_ethic = "ethic_militarist"
+			has_ethic = "ethic_fanatic_militarist"
+		}		
+		
+			
+			
+	}
+	
+	modifier = {
+		pop_ethic_shift = -0.3
+		pop_food_req_mult = -0.3
+		army_morale = 0.5
+		army_morale_damage_mult = 0.5
+		army_health = 0.5
+		general_skill_levels = 2
+        category_psionics_research_speed_mult = 0.5
+		country_physics_tech_research_speed = -0.3
+
+	}
+	
+	ruler_title = RT_DRULER
+	heir_title = HT_DPRINCE
+	
+	pickable_at_start = no
+}
+
+
+
+# Military-Industrial Cartel
+mil_cartel = {
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+	
+		
+		OR = {
+			has_ethic = "ethic_industrial"
+			has_ethic = "ethic_fanatic_industrial"
+		}		
+	
+
+		NOT = { has_ethic = "ethic_fanatic_collectivist" }
+		NOT = { has_ethic = "ethic_fanatic_individualist" }
+		
+		NOT = { has_ethic = "ethic_pacifist" }
+		NOT = { has_ethic = "ethic_fanatic_pacifist" }			
+		
+		NOT = { has_ethic = "ethic_socialism" }
+		NOT = { has_ethic = "ethic_fanatic_socialism" }			
+		
+
+
+
+	}
+	
+	modifier = {
+	                  spaceport_ship_build_time_mult = -0.05
+                      spaceport_ship_build_cost_mult = -0.1
+		              shipclass_military_station_build_cost_mult = -0.1
+					  ship_reparation_cost_mult = -0.15
+					  ship_reparation_speed_mult = 0.15
+                      ship_armor_mult = 0.05
+                      ship_weapon_damage = 0.05
+                      category_rocketry_research_speed_mult = 0.15
+                      category_materials_research_speed_mult = 0.15
+                      category_voidcraft_research_speed_mult = 0.15
+					  pop_environment_tolerance = -0.07
+ 
+	}
+	
+	
+	election_term_years = 30
+	election_term_variance = 5 # +/- 5 years
+	election_type = oligarchic
+	can_have_emergency_elections = yes
+	emergency_election_cost = 250
+	has_agendas = yes
+	
+	max_election_candidates = 4
+	election_candidates = {
+		modifier = {
+			add = 1000
+			OR = {
+				leader_class = ruler
+				AND = {
+					exists = pop_faction
+					pop_faction = {
+						is_scope_valid = yes
+						is_pop_faction_type = loyalist
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 100
+			OR = {
+				leader_class = admiral
+				leader_class = general
+			}
+		}
+	}
+	
+	ruler_title = RT_HCOM
+	upgrade = mil_syndicate
+}
+
+
+
+# Military-Industrial Syndicate
+mil_syndicate = {
+	prerequisites = { "tech_galactic_administration" }
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+	
+
+		OR = {
+			has_ethic = "ethic_industrial"
+			has_ethic = "ethic_fanatic_industrial"
+		}		
+	
+
+		NOT = { has_ethic = "ethic_fanatic_collectivist" }
+		NOT = { has_ethic = "ethic_fanatic_individualist" }
+		
+		NOT = { has_ethic = "ethic_pacifist" }
+		NOT = { has_ethic = "ethic_fanatic_pacifist" }			
+		
+		NOT = { has_ethic = "ethic_socialism" }
+		NOT = { has_ethic = "ethic_fanatic_socialism" }			
+		
+
+		
+
+
+	}
+	
+	modifier = {
+	                  spaceport_ship_build_time_mult = -0.1
+                      spaceport_ship_build_cost_mult = -0.2
+		              shipclass_military_station_build_cost_mult = -0.2
+					  ship_reparation_cost_mult = -0.3
+					  ship_reparation_speed_mult = 0.3
+                      ship_armor_mult = 0.1
+                      ship_weapon_damage = 0.1
+                      category_rocketry_research_speed_mult = 0.3
+                      category_materials_research_speed_mult = 0.3
+                      category_voidcraft_research_speed_mult = 0.3
+					  pop_environment_tolerance = -0.14
+					
+     
+
+	}
+	
+	election_term_years = 30
+	election_term_variance = 5 # +/- 5 years
+	election_type = oligarchic
+	can_have_emergency_elections = yes
+	emergency_election_cost = 250
+	has_agendas = yes
+	
+	max_election_candidates = 4
+	election_candidates = {
+		modifier = {
+			add = 1000
+			OR = {
+				leader_class = ruler
+				AND = {
+					exists = pop_faction
+					pop_faction = {
+						is_scope_valid = yes
+						is_pop_faction_type = loyalist
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 100
+			OR = {
+				leader_class = admiral
+				leader_class = general
+			}
+		}
+	}
+	
+	ruler_title = RT_HCOM
+	
+	pickable_at_start = no
+}
+
+
+
+# Peacekeepers League
+peace_league = {
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+	
+		OR = {
+			has_ethic = "ethic_individualist"
+			has_ethic = "ethic_fanatic_individualist"
+		}
+		
+		OR = {
+			has_ethic = "ethic_spiritualist"
+			has_ethic = "ethic_fanatic_spiritualist"
+		}		
+		
+		OR = {
+			has_ethic = "ethic_pacifist"
+			has_ethic = "ethic_fanatic_pacifist"
+		}	
+		
+		OR = {
+			has_ethic = "ethic_xenophile"
+			has_ethic = "ethic_fanatic_xenophile"
+		}
+					
+		
+		NOT = { has_ethic = "ethic_milind" }
+
+
+	}
+	
+	modifier = {
+                      pop_ethic_shift = -0.1
+					  pop_xenophobia = -0.15
+					  diplomacy_influence_cost = -0.2
+					  country_trust_growth = 0.2 
+					  country_trade_attractiveness = 0.2
+					  max_embassies = 1
+					  max_rivalries = -1
+					  rivalry_influence_gain = -0.2
+					  navy_size_mult = -0.10
+
+                
+	}
+	
+	uses_mandates = yes
+	election_term_years = 10
+	re_election_allowed = yes
+	election_type = democratic
+	
+	ruler_title = RT_SGEN
+	upgrade = pan_galactic
+}
+
+
+# Pan-Galactic League
+pan_galactic = {
+	prerequisites = { "tech_galactic_administration" }
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+		ethics = {
+	
+		OR = {
+			has_ethic = "ethic_individualist"
+			has_ethic = "ethic_fanatic_individualist"
+		}
+		
+		OR = {
+			has_ethic = "ethic_spiritualist"
+			has_ethic = "ethic_fanatic_spiritualist"
+		}		
+		
+		OR = {
+			has_ethic = "ethic_pacifist"
+			has_ethic = "ethic_fanatic_pacifist"
+		}	
+		
+		OR = {
+			has_ethic = "ethic_xenophile"
+			has_ethic = "ethic_fanatic_xenophile"
+		}
+			
+
+		NOT = { has_ethic = "ethic_milind" }
+		
+		
+
+
+
+	}
+	
+	modifier = {
+                      pop_ethic_shift = -0.2
+					  pop_xenophobia = -0.3
+					  diplomacy_influence_cost = -0.4
+					  country_trust_growth = 0.4 
+					  country_trade_attractiveness = 0.4
+					  max_embassies = 2
+					  max_rivalries = -2
+					  rivalry_influence_gain = -0.4
+					  navy_size_mult = -0.2
+
+                
+	}
+	
+	uses_mandates = yes
+	election_term_years = 10
+	re_election_allowed = yes
+	election_type = democratic
+	
+	ruler_title = RT_SGEN 
+	
+	pickable_at_start = no
+}
+
+
+
+# Communistic Autocracy
+communism = {
+	has_heir = yes
+	use_regnal_names = no
+	dynastic_last_names = no
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+	
+		OR = {
+			has_ethic = "ethic_collectivist"
+			has_ethic = "ethic_fanatic_collectivist"
+		}
+		
+		OR = {
+			has_ethic = "ethic_socialism"
+			has_ethic = "ethic_fanatic_socialism"
+		}
+
+		
+		NOT = { has_ethic = "ethic_elitist" }
+		NOT = { has_ethic = "ethic_fanatic_elitist" }	
+		NOT = { has_ethic = "ethic_spiritualist" }
+		NOT = { has_ethic = "ethic_fanatic_spiritualist" }	
+		
+	}
+	
+	modifier = {
+		pop_food_req_mult = -0.15
+		pop_environment_tolerance = 0.05
+		building_time_mult = -0.15
+		spaceport_ship_build_time_mult = -0.15
+        category_statecraft_research_speed_mult = 0.25
+		category_industry_research_speed_mult = 0.25
+		pop_slavery_tolerance = -0.5
+		tile_resource_energy_mult = -0.05
+
+	}
+	
+	ruler_title = RT_GENSEK
+	heir_title = HT_DEPUTY_SEK
+	upgrade = peoples_republic
+}
+
+# Advanced Communistic Autocracy
+peoples_republic = {
+	prerequisites = { "tech_galactic_administration" }
+	has_heir = yes
+	use_regnal_names = no
+	dynastic_last_names = no
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+	
+		OR = {
+			has_ethic = "ethic_collectivist"
+			has_ethic = "ethic_fanatic_collectivist"
+		}
+		
+		OR = {
+			has_ethic = "ethic_socialism"
+			has_ethic = "ethic_fanatic_socialism"
+		}
+		
+		
+		NOT = { has_ethic = "ethic_elitist" }
+		NOT = { has_ethic = "ethic_fanatic_elitist" }	
+		NOT = { has_ethic = "ethic_spiritualist" }
+		NOT = { has_ethic = "ethic_fanatic_spiritualist" }			
+	}
+	
+	modifier = {
+		pop_food_req_mult = -0.3
+		pop_environment_tolerance = 0.1
+		building_time_mult = -0.3
+		spaceport_ship_build_time_mult = -0.3
+        category_statecraft_research_speed_mult = 0.5
+		category_industry_research_speed_mult = 0.5
+		pop_slavery_tolerance = -1
+		tile_resource_energy_mult = -0.1
+
+
+	}
+	
+	ruler_title = RT_GENSEK
+	heir_title = HT_DEPUTY_SEK
+	
+	pickable_at_start = no
+}
+
+
+
+
+
+# Biotech Conglomerate
+biotech_conglomerate = {
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+
+		OR = {
+			has_ethic = "ethic_materialist"
+			has_ethic = "ethic_fanatic_materialist"
+		}
+		
+		NOT = { has_ethic = "ethic_fanatic_collectivist" }
+		NOT = { has_ethic = "ethic_fanatic_individualist" }
+
+		NOT = { has_ethic = "ethic_socialism" }
+		NOT = { has_ethic = "ethic_fanatic_socialism" }			
+		
+		NOT = { has_ethic = "ethic_green" }
+		NOT = { has_ethic = "ethic_fanatic_green" }				
+
+
+	}
+	
+	modifier = {
+	
+                      leader_age = 25
+                      species_leader_exp_gain = 0.15
+					  pop_growth_req_mult = -0.1
+                      army_health = 0.15
+					  category_biology_research_speed_mult = 0.25
+					  category_computing_research_speed_mult = 0.25
+                      trait_points = 1
+					  pop_happiness = -0.05
+ 
+	}
+	
+
+	
+	election_term_years = 20
+	election_term_variance = 5 # +/- 5 years
+	election_type = oligarchic
+	can_have_emergency_elections = yes
+	emergency_election_cost = 150
+	has_agendas = yes
+	
+	max_election_candidates = 4
+	election_candidates = {
+		modifier = {
+			add = 1000
+			OR = {
+				leader_class = ruler
+				AND = {
+					exists = pop_faction
+					pop_faction = {
+						is_scope_valid = yes
+						is_pop_faction_type = loyalist
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 100
+			leader_class = scientist
+		}
+	}
+	
+	ruler_title = RT_CEO
+	upgrade = biotech_syndicate
+}
+
+
+
+# Biotech Syndicate
+biotech_syndicate = {
+	prerequisites = { "tech_galactic_administration" }
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+	
+		OR = {
+			has_ethic = "ethic_materialist"
+			has_ethic = "ethic_fanatic_materialist"
+		}	
+
+		
+		NOT = { has_ethic = "ethic_fanatic_collectivist" }
+		NOT = { has_ethic = "ethic_fanatic_individualist" }
+		
+		NOT = { has_ethic = "ethic_socialism" }
+		NOT = { has_ethic = "ethic_fanatic_socialism" }		
+		
+		NOT = { has_ethic = "ethic_green" }
+		NOT = { has_ethic = "ethic_fanatic_green" }				
+		
+
+
+
+	}
+	
+	modifier = {
+                      
+                      leader_age = 50
+                      species_leader_exp_gain = 0.3
+					  pop_growth_req_mult = -0.2
+                      army_health = 0.3
+					  category_biology_research_speed_mult = 0.5
+					  category_computing_research_speed_mult = 0.5
+                      trait_points = 2
+					  pop_happiness = -0.1
+					
+     
+
+	}
+	
+	election_term_years = 20
+	election_term_variance = 5 # +/- 5 years
+	election_type = oligarchic
+	can_have_emergency_elections = yes
+	emergency_election_cost = 150
+	has_agendas = yes
+	
+	max_election_candidates = 4
+	election_candidates = {
+		modifier = {
+			add = 1000
+			OR = {
+				leader_class = ruler
+				AND = {
+					exists = pop_faction
+					pop_faction = {
+						is_scope_valid = yes
+						is_pop_faction_type = loyalist
+					}
+				}
+			}
+		}
+		modifier = {
+			add = 100
+			leader_class = scientist
+		}
+	}
+	
+	ruler_title = RT_CEO
+	
+	pickable_at_start = no
+}
+
+
+
+# Capitalistic Autocracy
+cap_autocracy = {
+	has_heir = no
+	use_regnal_names = no
+	dynastic_last_names = no
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+	
+		OR = {
+			has_ethic = "ethic_collectivist"
+			has_ethic = "ethic_fanatic_collectivist"
+		}
+		
+		OR = {
+			has_ethic = "ethic_capitalism"
+			has_ethic = "ethic_fanatic_capitalism"
+		}
+		
+		NOT = { has_ethic = "ethic_green" }
+		NOT = { has_ethic = "ethic_fanatic_green" }		
+	}
+	
+	modifier = {
+		tile_resource_energy_mult = 0.05
+        influence_gain_mult = 0.15
+		slave_production_output = 0.25
+        slave_food_output = 0.25
+		category_industry_research_speed_mult = 0.25
+		pop_happiness = -0.05
+
+
+
+
+	}
+	
+	election_type = oligarchic
+	election_term_years = 0
+	
+	max_election_candidates = 4
+	election_candidates = {
+		modifier = {
+			add = 1000
+			leader_class = ruler
+			exists = pop_faction
+			pop_faction = {
+				AND = {
+					is_scope_valid = yes
+					is_pop_faction_type = loyalist
+				}
+			}
+		}
+
+	}
+	
+	ruler_title = RT_SUP
+	upgrade = adv_cap_autocracy
+}
+
+# Advanced Capitalistic Autocracy
+adv_cap_autocracy = {
+	prerequisites = { "tech_galactic_administration" }
+	has_heir = no
+	use_regnal_names = no
+	dynastic_last_names = no
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+	
+		OR = {
+			has_ethic = "ethic_collectivist"
+			has_ethic = "ethic_fanatic_collectivist"
+		}
+		
+		OR = {
+			has_ethic = "ethic_capitalism"
+			has_ethic = "ethic_fanatic_capitalism"
+		}
+
+		NOT = { has_ethic = "ethic_green" }
+		NOT = { has_ethic = "ethic_fanatic_green" }				
+		
+	}
+	
+	modifier = {
+	
+		tile_resource_energy_mult = 0.1
+        influence_gain_mult = 0.3
+		slave_production_output = 0.5
+        slave_food_output = 0.5
+		category_industry_research_speed_mult = 0.5
+		pop_happiness = -0.1
+
+
+
+	}
+	
+	election_type = oligarchic
+	election_term_years = 0
+	
+	max_election_candidates = 4
+	election_candidates = {
+		modifier = {
+			add = 1000
+			leader_class = ruler
+			exists = pop_faction
+			pop_faction = {
+				AND = {
+					is_scope_valid = yes
+					is_pop_faction_type = loyalist
+				}
+			}
+		}
+
+	}
+	
+	ruler_title = RT_CHSUP
+	
+	pickable_at_start = no
+}
+
+
+
+
+# Technocratic Republic
+technocratic = {
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+	
+		OR = {
+			has_ethic = "ethic_individualist"
+			has_ethic = "ethic_fanatic_individualist"
+		}		
+		
+		OR = {
+			has_ethic = "ethic_fanatic_materialist"
+		}	
+
+		OR = {
+			has_ethic = "ethic_industrial"
+			has_ethic = "ethic_fanatic_industrial"
+		}		
+	
+		
+	
+	}
+	
+	modifier = {
+                 country_core_sector_system_cap = 1
+                 all_technology_research_speed = 0.05
+				 science_ship_survey_speed = 0.1
+				 building_time_mult = -0.08
+		         spaceport_ship_build_time_mult = -0.08
+                 pop_robot_production_output = 0.25
+				 ship_auto_repair_add = 0.04
+                 pop_growth_req_mult = 0.15
+
+
+
+
+	}
+	
+	uses_mandates = yes
+	election_term_years = 10
+	re_election_allowed = yes
+	election_type = democratic
+	
+	ruler_title = RT_HTECH
+	upgrade = adv_technocratic
+}
+
+
+
+adv_technocratic = {
+	prerequisites = { "tech_galactic_administration" }
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+		ethics = {
+		
+		OR = {
+			has_ethic = "ethic_individualist"
+			has_ethic = "ethic_fanatic_individualist"
+		}		
+		
+		OR = {
+			has_ethic = "ethic_fanatic_materialist"
+		}	
+
+		OR = {
+			has_ethic = "ethic_industrial"
+			has_ethic = "ethic_fanatic_industrial"
+		}		
+	
+
+		
+	
+	}
+	
+	modifier = {
+                 country_core_sector_system_cap = 2
+                 all_technology_research_speed = 0.10
+				 science_ship_survey_speed = 0.2
+				 building_time_mult = -0.15
+		         spaceport_ship_build_time_mult = -0.15
+                 pop_robot_production_output = 0.5
+				 ship_auto_repair_add = 0.08
+                 pop_growth_req_mult = 0.3
+
+
+
+
+	}
+	
+	uses_mandates = yes
+	election_term_years = 10
+	re_election_allowed = yes
+	election_type = democratic
+	
+	ruler_title = RT_HTECH
+	
+	pickable_at_start = no
+}
+
+
+
+# Police State
+police_state = {
+	has_heir = yes
+	use_regnal_names = no
+	dynastic_last_names = no
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+	
+		OR = {
+			has_ethic = "ethic_collectivist"
+			has_ethic = "ethic_fanatic_collectivist"
+		}
+		
+		OR = {
+			has_ethic = "ethic_socialism"
+			has_ethic = "ethic_fanatic_socialism"
+		}
+		
+		NOT = { has_ethic = "ethic_elitist" }
+		NOT = { has_ethic = "ethic_fanatic_elitist" }	
+		NOT = { has_ethic = "ethic_pacifist" }
+		NOT = { has_ethic = "ethic_fanatic_pacifist" }	
+		NOT = { has_ethic = "ethic_spiritualist" }
+		NOT = { has_ethic = "ethic_fanatic_spiritualist" }				
+	}
+	
+	modifier = {
+	
+	        pop_ethic_shift = -0.1
+			pop_food_req_mult = -0.15
+			country_resettlement_cost_mult = -0.25
+			planet_army_build_cost_mult = -0.15
+			planet_army_build_speed_mult = 0.15
+            army_upkeep_mult = -0.15
+			army_damage_mult = 0.15
+			category_military_theory_research_speed_mult = 0.25
+			category_statecraft_research_speed_mult = 0.25
+            tile_resource_energy_mult = -0.08
+			pop_migration_speed = -0.2
+
+
+	}
+	
+	
+	ruler_title = RT_SUPRE
+	heir_title = HT_1COUNS
+	upgrade = adv_police_state
+}
+
+
+
+# Advanced Police State
+adv_police_state = {
+	prerequisites = { "tech_galactic_administration" }
+	has_heir = yes
+	use_regnal_names = no
+	dynastic_last_names = no
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+	
+		OR = {
+			has_ethic = "ethic_collectivist"
+			has_ethic = "ethic_fanatic_collectivist"
+		}
+		
+		OR = {
+			has_ethic = "ethic_socialism"
+			has_ethic = "ethic_fanatic_socialism"
+		}
+		
+		NOT = { has_ethic = "ethic_elitist" }
+		NOT = { has_ethic = "ethic_fanatic_elitist" }	
+		NOT = { has_ethic = "ethic_pacifist" }
+		NOT = { has_ethic = "ethic_fanatic_pacifist" }
+		NOT = { has_ethic = "ethic_spiritualist" }
+		NOT = { has_ethic = "ethic_fanatic_spiritualist" }			
+		
+	}
+	
+	modifier = {
+	
+	        pop_ethic_shift = -0.2
+			pop_food_req_mult = -0.3
+			country_resettlement_cost_mult = -0.5
+			planet_army_build_cost_mult = -0.3
+			planet_army_build_speed_mult = 0.3
+            army_upkeep_mult = -0.3
+			army_damage_mult = 0.3
+			category_military_theory_research_speed_mult = 0.5
+			category_statecraft_research_speed_mult = 0.5
+            tile_resource_energy_mult = -0.15
+			pop_migration_speed = -0.4
+
+
+
+
+	}
+	
+
+	
+	ruler_title = RT_SUPRE
+	pickable_at_start = no
+}
+
+
+
+
+#Parliamentary Monarchy
+par_monarchy = {
+	has_heir = yes
+	use_regnal_names = yes
+	dynastic_last_names = yes
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+
+		OR = {
+			has_ethic = "ethic_individualist"
+		}
+
+		OR = {
+			has_ethic = "ethic_elitist"
+			has_ethic = "ethic_fanatic_elitist"
+		}		
+		
+
+        NOT = { has_ethic = "ethic_fanatic_individualist" }		
+        NOT = { has_ethic = "ethic_fanatic_capitalism" }
+        NOT = { has_ethic = "ethic_fanatic_socialism" }		
+	
+	}
+	
+	modifier = {
+
+	    pop_happiness = 0.05
+		navy_size_mult = 0.1
+		influence_gain_mult = 0.1
+		country_leader_cap = 1
+		country_sector_cap_add = 1
+		max_embassies = 1
+
+	}
+	
+	ruler_title = RT_KING
+	ruler_title_female = RT_QUEEN
+	heir_title = HT_CROWN_PRINCE
+	heir_title_female = HT_CROWN_PRINCESS
+	upgrade = glor_monarchy
+}
+
+# Advanced Parliamentary Monarchy
+glor_monarchy = {
+	prerequisites = { "tech_galactic_administration" }
+	has_heir = yes
+	use_regnal_names = yes
+	dynastic_last_names = yes
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+
+		OR = {
+			has_ethic = "ethic_individualist"
+		}
+		OR = {
+			has_ethic = "ethic_elitist"
+			has_ethic = "ethic_fanatic_elitist"
+		}			
+		
+        NOT = { has_ethic = "ethic_fanatic_individualist" }	
+        NOT = { has_ethic = "ethic_fanatic_capitalism" }
+        NOT = { has_ethic = "ethic_fanatic_socialism" }			
+	
+	}
+	
+	modifier = {
+
+	    pop_happiness = 0.1
+		navy_size_mult = 0.2
+		influence_gain_mult = 0.2
+		country_leader_cap = 2
+		country_sector_cap_add = 2
+		max_embassies = 2
+
+	}
+	
+	ruler_title = RT_HIGH_KING
+	ruler_title_female = RT_HIGH_QUEEN
+	heir_title = HT_CROWN_PRINCE
+	heir_title_female = HT_CROWN_PRINCESS
+	
+	pickable_at_start = no
+}
+
+
+
+
+
+# Eco Oligarchy
+eco_oligarchy = {
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+	
+		OR = {
+			has_ethic = "ethic_green"
+			has_ethic = "ethic_fanatic_green"
+		}
+		
+
+		NOT = { has_ethic = "ethic_fanatic_collectivist" }
+		NOT = { has_ethic = "ethic_fanatic_individualist" }
+
+	}
+	
+	modifier = {
+	             pop_environment_tolerance = 0.05
+				 planet_building_cost_mult = -0.1
+                 spaceport_ship_build_cost_mult = -0.1
+				 tile_resource_energy_mult = 0.05				 
+                 category_new_worlds_research_speed_mult = 0.2
+				 category_industry_research_speed_mult = 0.2
+                 influence_gain_mult = -0.07
+				 building_time_mult = 0.1
+		         spaceport_ship_build_time_mult = 0.1
+				 
+
+
+                
+	}
+	
+	election_term_years = 40
+	election_term_variance = 5 # +/- 5 years
+	election_type = oligarchic
+	can_have_emergency_elections = yes
+	emergency_election_cost = 200
+	has_agendas = yes
+	
+	max_election_candidates = 4
+	election_candidates = {
+		modifier = {
+			add = 1000
+			OR = {
+				leader_class = ruler
+				AND = {
+					exists = pop_faction
+					pop_faction = {
+						is_scope_valid = yes
+						is_pop_faction_type = loyalist
+					}
+				}
+			}
+		}
+	}
+	
+	ruler_title = RT_SGEN
+	upgrade = adv_eco_oligarchy
+}
+
+
+
+
+# Advanced Eco Oligarchy
+adv_eco_oligarchy = {
+	prerequisites = { "tech_galactic_administration" }
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	}
+
+	ethics = {
+	
+		OR = {
+			has_ethic = "ethic_green"
+			has_ethic = "ethic_fanatic_green"
+		}
+	
+		NOT = { has_ethic = "ethic_fanatic_collectivist" }
+		NOT = { has_ethic = "ethic_fanatic_individualist" }
+
+
+	}
+	
+	modifier = {
+	             pop_environment_tolerance = 0.1
+				 planet_building_cost_mult = -0.2
+                 spaceport_ship_build_cost_mult = -0.2
+				 tile_resource_energy_mult = 0.1				 
+                 category_new_worlds_research_speed_mult = 0.4
+				 category_industry_research_speed_mult = 0.4
+                 influence_gain_mult = -0.15
+				 building_time_mult = 0.2
+		         spaceport_ship_build_time_mult = 0.2
+
+	}
+	
+	election_term_years = 40
+	election_term_variance = 5 # +/- 5 years
+	election_type = oligarchic
+	can_have_emergency_elections = yes
+	emergency_election_cost = 200
+	has_agendas = yes
+
+	
+	max_election_candidates = 4
+	election_candidates = {
+		modifier = {
+			add = 1000
+			OR = {
+				leader_class = ruler
+				AND = {
+					exists = pop_faction
+					pop_faction = {
+						is_scope_valid = yes
+						is_pop_faction_type = loyalist
+					}
+				}
+			}
+		}
+	}
+	
+	ruler_title = RT_SGEN
+	
+	pickable_at_start = no
+}
+
+
+# Hive Mind
+communist_dictatorship = {
+	has_heir = yes
+	use_regnal_names = no
+	dynastic_last_names = no
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+	    has_trait = "trait_drone_mindset"
+	}
+	
+
+	ethics = {
+		OR = {
+			has_ethic = "ethic_fanatic_socialism"
+		}
+
+		OR = {
+			has_ethic = "ethic_fanatic_collectivist"
+		}
+		
+		OR = {
+		    has_ethic = "ethic_xenophobe"
+			has_ethic = "ethic_fanatic_xenophobe"
+		}
+		
+		NOT = { has_ethic = "ethic_elitist" }
+		NOT = { has_ethic = "ethic_fanatic_elitist" }
+		NOT = { has_ethic = "ethic_pluralist" }
+		NOT = { has_ethic = "ethic_fanatic_pluralist" }		
+	}
+	
+	modifier = {
+		pop_ethic_shift = -0.5
+		pop_growth_req_mult = -0.33
+		country_core_sector_system_cap = 3
+        all_technology_research_speed = 0.33
+		army_morale = 0.25
+		num_tech_alternatives_add = -1
+		species_leader_exp_gain = -0.5	
+		pop_migration_speed = -0.2
+		country_sector_cap_add = -2
+
+	}
+	
+	ruler_title = RT_HIVEMIND
+	heir_title = RT_HIVEMIND
+	upgrade = communist_utopia
+}
+
+# Hive Consciousness
+communist_utopia = {
+	prerequisites = { "tech_galactic_administration" }
+	has_heir = yes
+	use_regnal_names = no
+	dynastic_last_names = no
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+		has_trait = "trait_drone_mindset"
+	}
+
+	ethics = {
+		OR = {
+			has_ethic = "ethic_fanatic_socialism"
+		}
+
+		OR = {
+			has_ethic = "ethic_fanatic_collectivist"
+		}
+		
+		OR = {
+		    has_ethic = "ethic_xenophobe"
+			has_ethic = "ethic_fanatic_xenophobe"
+		}
+		
+		NOT = { has_ethic = "ethic_elitist" }
+		NOT = { has_ethic = "ethic_fanatic_elitist" }	
+		NOT = { has_ethic = "ethic_pluralist" }
+		NOT = { has_ethic = "ethic_fanatic_pluralist" }		
+		
+	}
+	
+	modifier = {
+		pop_ethic_shift = -1
+		pop_growth_req_mult = -0.66
+		country_core_sector_system_cap = 6
+        all_technology_research_speed = 1
+		army_morale = 0.5
+		num_tech_alternatives_add = -2
+		species_leader_exp_gain = -1	
+		pop_migration_speed = -0.4
+		country_sector_cap_add = -3
+
+
+	}
+	
+	ruler_title = RT_HIVEMIND
+	heir_title = RT_HIVEMIND
+	
+	pickable_at_start = no
+}
+
+
+
+
+
+
+
+# The Caste
+caste = {
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+		has_trait = "trait_slaver_gene"
+	}
+
+	ethics = {
+	
+			has_ethic = "ethic_fanatic_collectivist"
+			has_ethic = "ethic_fanatic_elitist"
+			
+		NOT = { has_ethic = "ethic_socialism" }
+		NOT = { has_ethic = "ethic_fanatic_socialism" }	
+		NOT = { has_ethic = "ethic_capitalism" }
+		NOT = { has_ethic = "ethic_fanatic_capitalism" }				
+	
+			
+	}
+	
+	# Also might have Neural Implants tech from the start
+	
+	
+		modifier = {
+		               pop_ethic_shift = -0.5
+                       leader_age = 25	
+                       country_leader_cap = 2					   			   
+                       slave_production_output = 0.5
+					   influence_gain_mult = 0.33
+                       country_resettlement_cost_mult = -0.25
+					   edict_influence_cost = -0.25
+                       edict_length_mult = 0.25
+					   trait_points = 1					   
+					   country_leader_pool_size = -1
+                       all_technology_research_speed = -0.15			   
+                       pop_growth_req_mult = 0.33
+                       pop_migration_speed = -0.33
+
+
+                
+	}
+	
+
+	
+	election_term_years = 0
+	election_type = oligarchic
+
+	max_election_candidates = 4
+	election_candidates = {
+		modifier = {
+			add = 1000
+			OR = {
+				leader_class = ruler
+				AND = {
+					exists = pop_faction
+					pop_faction = {
+						is_scope_valid = yes
+						is_pop_faction_type = loyalist
+					}
+				}
+			}
+		}
+
+	}
+	
+	ruler_title = RT_HIGH_KING
+	ruler_title_female = RT_HIGH_QUEEN
+	upgrade = ul_caste
+}
+
+
+
+# The Ultimate Caste
+ul_caste = {
+	prerequisites = { "tech_galactic_administration" }
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+		has_trait = "trait_slaver_gene"
+	}
+
+	ethics = {
+	
+			has_ethic = "ethic_fanatic_collectivist"
+			has_ethic = "ethic_fanatic_elitist"
+
+		NOT = { has_ethic = "ethic_socialism" }
+		NOT = { has_ethic = "ethic_fanatic_socialism" }	
+		NOT = { has_ethic = "ethic_capitalism" }
+		NOT = { has_ethic = "ethic_fanatic_capitalism" }		
+			
+	}
+	
+	
+	
+		modifier = {
+		               pop_ethic_shift = -1
+                       leader_age = 50
+					   country_leader_cap = 4						   
+                       slave_production_output = 1
+					   influence_gain_mult = 0.66
+                       country_resettlement_cost_mult = -0.5
+					   edict_influence_cost = -0.5
+                       edict_length_mult = 0.5
+					   trait_points = 2				   
+					   country_leader_pool_size = -2
+					   all_technology_research_speed = -0.3
+                       pop_growth_req_mult = 0.66
+                       pop_migration_speed = -0.66
+
+
+                
+	}
+	
+
+	
+	election_term_years = 0
+	election_type = oligarchic
+
+	max_election_candidates = 4
+	election_candidates = {
+		modifier = {
+			add = 1000
+			OR = {
+				leader_class = ruler
+				AND = {
+					exists = pop_faction
+					pop_faction = {
+						is_scope_valid = yes
+						is_pop_faction_type = loyalist
+					}
+				}
+			}
+		}
+
+	}
+	
+	ruler_title = RT_HIGH_KING
+	ruler_title_female = RT_HIGH_QUEEN
+	
+	pickable_at_start = no
+}
+
+
+
+
+
+
+# The Coalescence
+coalescence = {
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+		has_trait = "trait_brainchip"
+	}
+
+	ethics = {
+	
+		
+		NOT = { has_ethic = "ethic_militarist" }
+		NOT = { has_ethic = "ethic_fanatic_militarist" }
+		NOT = { has_ethic = "ethic_milind" }
+		NOT = { has_ethic = "ethic_xenophobe"}
+		NOT = { has_ethic = "ethic_fanatic_xenophobe"}	
+		NOT = { has_ethic = "ethic_spiritualist" }
+		NOT = { has_ethic = "ethic_fanatic_spiritualist" }			
+		NOT = { has_ethic = "ethic_collectivist" }
+		NOT = { has_ethic = "ethic_fanatic_collectivist" }
+		NOT = { has_ethic = "ethic_elitist" }
+		NOT = { has_ethic = "ethic_fanatic_elitist" }		
+		NOT = { has_ethic = "ethic_individualist" }
+		NOT = { has_ethic = "ethic_fanatic_individualist" }	
+		NOT = { has_ethic = "ethic_capitalism" }
+        NOT = { has_ethic = "ethic_fanatic_capitalism" }	
+			
+		
+
+	}
+	
+	modifier = {
+                      pop_ethic_shift = -0.5
+					  num_tech_alternatives_add = 1
+                      all_technology_research_speed = 0.2
+					  science_ship_survey_speed  = 0.25
+                      ship_anomaly_research_speed_mult = 0.25				  
+					  pop_happiness = 0.05
+					  pop_environment_tolerance = 0.05
+					  country_leader_pool_size = 1
+					  species_leader_exp_gain = 0.5
+					  influence_gain_mult = -0.25
+					  max_rivalries = -1
+					  rivalry_influence_gain = -0.5
+					  navy_size_mult = -0.15
+					  pop_war_happiness = -0.15	
+                      army_morale = -0.25	
+
+
+                
+	}
+	
+	uses_mandates = yes
+	election_term_years = 5
+	re_election_allowed = yes
+	election_type = democratic
+	
+	ruler_title = RT_PRIME
+	upgrade = ul_coal
+}
+
+
+# The Great Coalescence
+ul_coal = {
+	prerequisites = { "tech_galactic_administration" }
+	
+	potential = {
+		hidden_trigger = { NOT = { is_country_type = fallen_empire } }
+		has_trait = "trait_brainchip"
+	}
+
+		ethics = {
+		
+		NOT = { has_ethic = "ethic_militarist" }
+		NOT = { has_ethic = "ethic_fanatic_militarist" }
+		NOT = { has_ethic = "ethic_spiritualist" }
+		NOT = { has_ethic = "ethic_fanatic_spiritualist" }			
+		NOT = { has_ethic = "ethic_collectivist" }
+		NOT = { has_ethic = "ethic_fanatic_collectivist" }	
+		NOT = { has_ethic = "ethic_elitist" }
+		NOT = { has_ethic = "ethic_fanatic_elitist" }		
+		NOT = { has_ethic = "ethic_individualist" }
+		NOT = { has_ethic = "ethic_fanatic_individualist" }	
+		NOT = { has_ethic = "ethic_capitalism" }
+        NOT = { has_ethic = "ethic_fanatic_capitalism" }	
+		
+
+
+
+	}
+	
+	modifier = {
+                      pop_ethic_shift = -1
+					  num_tech_alternatives_add = 2
+                      all_technology_research_speed = 0.4
+					  science_ship_survey_speed  = 0.5
+                      ship_anomaly_research_speed_mult = 0.5				  
+					  pop_happiness = 0.1
+					  pop_environment_tolerance = 0.1
+					  country_leader_pool_size = 2
+					  species_leader_exp_gain = 1
+					  influence_gain_mult = -0.5
+					  max_rivalries = -2
+					  rivalry_influence_gain = -1
+					  navy_size_mult = -0.3
+					  pop_war_happiness = -0.3
+                      army_morale = -0.5	
+                      
+
+
+                
+	}
+	
+	uses_mandates = yes
+	election_term_years = 5
+	re_election_allowed = yes
+	election_type = democratic
+	
+	ruler_title = RT_PRIME
+	
+	pickable_at_start = no
+}
+
+
+
+

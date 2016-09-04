@@ -1,0 +1,134 @@
+# Sector Separatist Mandate - Grant independence to the sector
+mandate_sector_separatist = {
+    parameters = {
+        sector = sector
+    }
+
+    valid = {
+        exists = pop_faction
+        pop_faction = { is_pop_faction_type = sector_separatists }
+        parameter:sector = { is_core_sector = no }
+    }
+
+    vote_weight = {
+        base = 0
+
+        # Disenfranchised
+        modifier = {
+            factor = 0
+            pop_can_vote = no
+        }
+
+        # Part of the faction
+        modifier = {
+            add = 100
+            exists = pop_faction
+            pop_faction = {
+                is_pop_faction_type = sector_separatists
+                check_pop_faction_parameter = {
+                    which = sector
+                    value = parameter:sector
+                }
+            }
+        }
+
+        # Not part of the faction but pissed off
+        modifier = {
+            add = 30
+            happiness < 0.3
+            OR = {
+                NOT = { exists = pop_faction }
+                AND = {
+                    exists = pop_faction
+                    pop_faction = {
+                        NOT = { is_pop_faction_type = sector_separatists }
+                    }
+                }
+            }
+            planet = {
+                sector_controlled = yes
+                sector = {
+                    is_same_value = parameter:sector
+                }
+            }
+        }
+
+        # Not part of the faction but unhappy
+        modifier = {
+            add = 10
+            happiness < 0.5
+            happiness > 0.3
+            OR = {
+                NOT = { exists = pop_faction }
+                AND = {
+                    exists = pop_faction
+                    pop_faction = {
+                        NOT = { is_pop_faction_type = sector_separatists }
+                    }
+                }
+            }
+            planet = {
+                sector_controlled = yes
+                sector = {
+                    is_same_value = parameter:sector
+                }
+            }
+        }
+
+        # Xenophobes
+        modifier = {
+            factor = 0.8
+            has_ethic = ethic_xenophobe
+            not = {
+                species = {
+                    from = {
+                        exists = species
+                        species = {
+                            is_same_value = prevprev
+                        }
+                    }
+                }
+            }
+        }
+
+        # Fanatic Xenophobes
+        modifier = {
+            factor = 0.6
+            has_ethic = ethic_fanatic_xenophobe
+            not = {
+                species = {
+                    from = {
+                        exists = species
+                        species = {
+                            is_same_value = prevprev
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    on_leader_elected = {
+        pop_faction = {
+            leader = {
+                save_event_target_as = faction_leader
+            }
+            set_pop_faction_flag = mandated_release
+        }
+        owner = {
+            begin_event_chain = {
+                event_chain = mandate_sector_separatist_chain
+                target = this
+            }
+        }
+    }
+
+    on_leader_ousted = {
+        owner = {
+            country_event = { id = mandate.2 }
+        }
+        pop_faction = {
+            remove_pop_faction_flag = mandated_release
+        }
+    }
+}

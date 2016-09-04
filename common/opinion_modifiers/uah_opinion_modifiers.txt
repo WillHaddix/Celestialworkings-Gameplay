@@ -1,0 +1,9 @@
+# Subject's relative power to overlord
+opinion_relative_power = {
+    opinion = {
+        base = -0.5 # per 1% power
+    }
+
+    min = -1000
+    unique = yes
+}

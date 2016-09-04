@@ -1,0 +1,329 @@
+
+@energy_gaia = 4500
+@time_gaia = 7000
+
+@energy_purifying = 3000
+@time_purifying = 6000
+
+@energy_inhabitable = 3500
+@time_inhabitable = 7500
+
+
+
+#Purifying Terraforming Links
+#############################
+
+terraform_link = {
+	from = "pc_nuked"
+	to = "pc_continental"
+
+	duration = @time_purifying
+	energy = @energy_purifying
+
+	resources = {
+		sr_terraform_gases = 3
+		sr_terraform_liquids = 3
+	}
+
+	condition = {
+		has_technology = "tech_atm_purifying"
+	}
+}
+
+terraform_link = {
+	from = "pc_nuked"
+	to = "pc_ocean"
+
+	duration = @time_purifying
+	energy = @energy_purifying
+
+	resources = {
+		sr_terraform_gases = 2
+		sr_terraform_liquids = 4
+	}
+
+	condition = {
+		has_technology = "tech_atm_purifying"
+	}
+}
+
+terraform_link = {
+	from = "pc_nuked"
+	to = "pc_tropical"
+
+	duration = @time_purifying
+	energy = @energy_purifying
+
+	resources = {
+		sr_terraform_gases = 4
+		sr_terraform_liquids = 2
+	}
+
+	condition = {
+		has_technology = "tech_atm_purifying"
+	}
+}
+
+terraform_link = {
+	from = "pc_toxic"
+	to = "pc_continental"
+
+	duration = @time_purifying
+	energy = @energy_purifying
+
+	resources = {
+		sr_terraform_gases = 3
+		sr_terraform_liquids = 3
+	}
+
+	condition = {
+		has_technology = "tech_atm_purifying"
+	}
+}
+
+terraform_link = {
+	from = "pc_toxic"
+	to = "pc_ocean"
+
+	duration = @time_purifying
+	energy = @energy_purifying
+
+	resources = {
+		sr_terraform_gases = 2
+		sr_terraform_liquids = 4
+	}
+
+	condition = {
+		has_technology = "tech_atm_purifying"
+	}
+}
+
+terraform_link = {
+	from = "pc_toxic"
+	to = "pc_tropical"
+
+	duration = @time_purifying
+	energy = @energy_purifying
+
+	resources = {
+		sr_terraform_gases = 4
+		sr_terraform_liquids = 2
+	}
+
+	condition = {
+		has_technology = "tech_atm_purifying"
+	}
+}
+
+
+#Uninhabitable Terraforming Links
+#################################
+
+terraform_link = {
+	from = "pc_barren"
+	to = "pc_arid"
+
+	duration = @time_inhabitable
+	energy = @energy_inhabitable
+	
+	resources = {
+		sr_terraform_gases = 3
+		sr_terraform_liquids = 3
+	}
+
+	condition = {
+		has_technology = "tech_terraform_uninhabit"
+	}
+}
+
+terraform_link = {
+	from = "pc_barren_cold"
+	to = "pc_tundra"
+
+	duration = @time_inhabitable
+	energy = @energy_inhabitable
+
+	resources = {
+		sr_terraform_gases = 3
+		sr_terraform_liquids = 3
+	}
+
+	condition = {
+		has_technology = "tech_terraform_uninhabit"
+	}
+}
+
+terraform_link = {
+	from = "pc_frozen"
+	to = "pc_arctic"
+
+	duration = @time_inhabitable
+	energy = @energy_inhabitable
+
+	resources = {
+		sr_terraform_gases = 3
+		sr_terraform_liquids = 3
+	}
+
+	condition = {
+		has_technology = "tech_terraform_uninhabit"
+	}
+}
+
+terraform_link = {
+	from = "pc_molten"
+	to = "pc_desert"
+
+	duration = @time_inhabitable
+	energy = @energy_inhabitable
+
+	resources = {
+		sr_terraform_gases = 3
+		sr_terraform_liquids = 3
+	}
+
+	condition = {
+		has_technology = "tech_terraform_uninhabit"
+	}
+}
+
+
+
+
+
+#Gaia Terraforming Links
+########################
+
+
+terraform_link = {
+	from = "pc_arctic"
+	to = "pc_gaia"
+
+	duration = @time_gaia
+	energy = @energy_gaia
+
+	resources = {
+		sr_terraform_gases = 2
+		sr_terraform_liquids = 2
+		sr_engos = 1
+		sr_pitharan = 1
+	}
+
+	condition = {
+		has_technology = "tech_terraform_gaia"
+	}
+}
+
+terraform_link = {
+	from = "pc_arid"
+	to = "pc_gaia"
+
+	duration = @time_gaia
+	energy = @energy_gaia
+
+	resources = {
+		sr_terraform_gases = 2
+		sr_terraform_liquids = 2
+		sr_engos = 1
+		sr_pitharan = 1
+	}
+
+	condition = {
+		has_technology = "tech_terraform_gaia"
+	}
+}
+
+terraform_link = {
+	from = "pc_continental"
+	to = "pc_gaia"
+
+	duration = @time_gaia
+	energy = @energy_gaia
+
+	resources = {
+		sr_terraform_gases = 2
+		sr_terraform_liquids = 2
+		sr_engos = 1
+		sr_pitharan = 1
+	}
+
+	condition = {
+		has_technology = "tech_terraform_gaia"
+	}
+}
+
+terraform_link = {
+	from = "pc_desert"
+	to = "pc_gaia"
+
+	duration = @time_gaia
+	energy = @energy_gaia
+
+	resources = {
+		sr_terraform_gases = 2
+		sr_terraform_liquids = 2
+		sr_engos = 1
+		sr_pitharan = 1
+	}
+
+	condition = {
+		has_technology = "tech_terraform_gaia"
+	}
+}
+
+terraform_link = {
+	from = "pc_ocean"
+	to = "pc_gaia"
+
+	duration = @time_gaia
+	energy = @energy_gaia
+
+	resources = {
+		sr_terraform_gases = 2
+		sr_terraform_liquids = 2
+		sr_engos = 1
+		sr_pitharan = 1
+	}
+
+	condition = {
+		has_technology = "tech_terraform_gaia"
+	}
+}
+
+terraform_link = {
+	from = "pc_tropical"
+	to = "pc_gaia"
+
+	duration = @time_gaia
+	energy = @energy_gaia
+
+	resources = {
+		sr_terraform_gases = 2
+		sr_terraform_liquids = 2
+		sr_engos = 1
+		sr_pitharan = 1
+	}
+
+	condition = {
+		has_technology = "tech_terraform_gaia"
+	}
+}
+
+terraform_link = {
+	from = "pc_tundra"
+	to = "pc_gaia"
+
+	duration = @time_gaia
+	energy = @energy_gaia
+
+	resources = {
+		sr_terraform_gases = 2
+		sr_terraform_liquids = 2
+		sr_engos = 1
+		sr_pitharan = 1
+	}
+
+	condition = {
+		has_technology = "tech_terraform_gaia"
+	}
+}
